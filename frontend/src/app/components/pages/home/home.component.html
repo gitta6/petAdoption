@@ -1,0 +1,37 @@
+<ul>
+    <li *ngFor="let pet of pets">
+        <a routerLink="/pet/{{pet.id}}">
+            <img [src]="pet.imageUrl" [alt]="pet.name" />
+            <div class="content">
+                <div class="name">
+                    {{pet.name}}
+                </div>
+                <span class="favorite {{pet.favorite?'':'not'}}">
+                    ♥
+                </span>
+                <div class="pet-item-footer">
+                    <div class="locations">
+                        <span>
+                            📍
+                        </span>
+                        {{pet.location}}
+                    </div>
+                    <div class="ages">
+                        <span>
+                            🎂
+                        </span>
+                        {{pet.age}}
+                    </div>
+                    <div class="gender">
+                        <span *ngIf="pet.gender === 'nőstény'">
+                            ♀️
+                        </span>
+                        <span *ngIf="pet.gender === 'hím'">
+                            ♂️
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+</ul>
