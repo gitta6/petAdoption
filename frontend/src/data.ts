@@ -1,3 +1,4 @@
+import { Category } from './app/shared/models/Category';
 import { Pet } from './app/shared/models/Pet';
 
 export const sample_pets: Pet[] = [
@@ -12,7 +13,8 @@ export const sample_pets: Pet[] = [
         imageUrl: 'assets/pet_id1.jpg',
         color: 'trikolor',
         description: 'szelíd, bújós, játékos',
-        location: 'Egerszalók'
+        location: 'Egerszalók',
+        categories: ['All', 'Cat', 'Female']
     },
 
     {
@@ -26,7 +28,8 @@ export const sample_pets: Pet[] = [
         imageUrl: 'assets/pet_id2.jpg',
         color: 'őzbarna',
         description: 'energikus, barátságos, kedves',
-        location: 'Budapest'
+        location: 'Budapest',
+        categories: ['All', 'Dog', 'Male']
     },
 
     {
@@ -40,7 +43,8 @@ export const sample_pets: Pet[] = [
         imageUrl: 'assets/pet_id3.jpg',
         color: 'fehér',
         description: 'játékos, csendes, hűséges',
-        location: 'Debrecen'
+        location: 'Debrecen',
+        categories: ['All', 'Cat', 'Male']
     },
 
     {
@@ -54,7 +58,8 @@ export const sample_pets: Pet[] = [
         imageUrl: 'assets/pet_id4.jpg',
         color: 'fekete-fehér',
         description: 'vidám, intelligens, odaadó',
-        location: 'Szeged'
+        location: 'Szeged',
+        categories: ['All', 'Dog', 'Male']
     },
 
     {
@@ -68,7 +73,8 @@ export const sample_pets: Pet[] = [
         imageUrl: 'assets/pet_id5.jpg',
         color: 'barna-fekete',
         description: 'játékos, kíváncsi, édes',
-        location: 'Győr'
+        location: 'Győr',
+        categories: ['All', 'Cat', 'Female']
     },
 
     {
@@ -82,9 +88,10 @@ export const sample_pets: Pet[] = [
         imageUrl: 'assets/pet_id6.jpg',
         color: 'barna',
         description: 'barátságos, derűs, gyengéd',
-        location: 'Pécs'
+        location: 'Pécs',
+        categories: ['All', 'Dog', 'Male']
     },
-    
+
     {
         id: '7',
         name: 'Zizi',
@@ -96,7 +103,8 @@ export const sample_pets: Pet[] = [
         imageUrl: 'assets/pet_id7.jpg',
         color: 'szürke',
         description: 'elegáns, hűséges, nyugodt',
-        location: 'Szombathely'
+        location: 'Szombathely',
+        categories: ['All', 'Cat', 'Female']
     },
 
     {
@@ -110,7 +118,8 @@ export const sample_pets: Pet[] = [
         imageUrl: 'assets/pet_id8.jpg',
         color: 'fekete',
         description: 'játékos, éber, bátor',
-        location: 'Miskolc'
+        location: 'Miskolc',
+        categories: ['All', 'Dog', 'Female']
     },
 
     {
@@ -124,9 +133,10 @@ export const sample_pets: Pet[] = [
         imageUrl: 'assets/pet_id9.jpg',
         color: 'vörös',
         description: 'impozáns, barátságos, okos',
-        location: 'Székesfehérvár'
+        location: 'Székesfehérvár',
+        categories: ['All', 'Cat', 'Male']
     },
-    
+
     {
         id: '10',
         name: 'Megatron',
@@ -138,6 +148,15 @@ export const sample_pets: Pet[] = [
         imageUrl: 'assets/pet_id10.jpg',
         color: 'arany',
         description: 'vidám, szeretetteljes, lelkes',
-        location: 'Kecskemét'
-    }    
+        location: 'Kecskemét',
+        categories: ['All', 'Dog', 'Male']
+    }
+]
+
+export const sample_categories: Category[] = [
+    { name: 'All', count: 10 },
+    { name: 'Dog', count: 5 },
+    { name: 'Cat', count: 5 },
+    { name: 'Male', count: 6 },
+    { name: 'Female', count: 4 }
 ]

@@ -1,0 +1,6 @@
+<div *ngIf="categories">
+    <h3 class="title">Categories:</h3>
+    <a *ngFor="let category of categories" routerLink="/category/{{category.name}}">
+        {{category.name}} ({{category.count}})
+    </a>
+</div>

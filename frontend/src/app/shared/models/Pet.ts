@@ -10,4 +10,5 @@ export class Pet{
     color?:string;
     description?:string;
     location?: string;
+    categories?:string[];
 }

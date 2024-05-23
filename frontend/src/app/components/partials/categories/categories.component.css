@@ -1,0 +1,31 @@
+div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+}
+
+div h3 {
+  color: rgb(135, 175, 162);
+  margin-left: 3rem;
+}
+
+div h3:hover {
+  cursor: default;
+}
+
+div a {
+  display: flex;
+  background-color: rgba(255, 218, 185, 0.571);
+  height: 3rem;
+  padding: 0.4rem;
+  margin-left: 0.5rem;
+  border-radius: 10rem;
+  font-weight: bold;
+  align-items: center;
+}
+
+div a:hover {
+  cursor: pointer;
+  background-color: rgba(255, 218, 185, 0.9);
+  transform: scale(110%);
+}
