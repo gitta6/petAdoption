@@ -12,4 +12,8 @@ export class PetService {
   getAll():Pet[]{
     return sample_pets;
   }
+
+  getAllPetsBySearchTerm(searchTerm:string){
+    return this.getAll().filter(pet => pet.name.toLowerCase().includes(searchTerm.toLowerCase()))
+  }
 }
