@@ -16,18 +16,7 @@ import { SearchComponent } from '../../partials/search/search.component';
   //styleUrl: './home.component.css'
   styleUrls: ['./home.component.css']
 })
-/*
-export class HomeComponent {
-  pets: Pet[] = [];
-  constructor(private petService: PetService) {
-    this.pets = petService.getAll();
-  }
 
-  ngOnInit(): void {
-
-  }
-}
-*/
 export class HomeComponent implements OnInit {
   pets: Pet[] = [];
   constructor(private petService: PetService, activatedRoute: ActivatedRoute) {

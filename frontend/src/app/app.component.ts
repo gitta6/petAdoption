@@ -7,7 +7,7 @@ import { SearchComponent } from './components/partials/search/search.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [HomeComponent, HeaderComponent, RouterOutlet],
+  imports: [HomeComponent, HeaderComponent, RouterOutlet, SearchComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
