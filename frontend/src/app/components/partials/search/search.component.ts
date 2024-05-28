@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
-  standalone: true,
-  imports: [],
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css']
 })
