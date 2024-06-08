@@ -14,7 +14,7 @@ export const sample_pets: Pet[] = [
         color: 'trikolor',
         description: 'szelíd, bújós, játékos',
         location: 'Egerszalók',
-        categories: ['All', 'Cat', 'Female']
+        categories: ['Cat', 'Female']
     },
 
     {
@@ -29,7 +29,7 @@ export const sample_pets: Pet[] = [
         color: 'őzbarna',
         description: 'energikus, barátságos, kedves',
         location: 'Budapest',
-        categories: ['All', 'Dog', 'Male']
+        categories: ['Dog', 'Male']
     },
 
     {
@@ -44,7 +44,7 @@ export const sample_pets: Pet[] = [
         color: 'fehér',
         description: 'játékos, csendes, hűséges',
         location: 'Debrecen',
-        categories: ['All', 'Cat', 'Male']
+        categories: ['Cat', 'Male']
     },
 
     {
@@ -59,7 +59,7 @@ export const sample_pets: Pet[] = [
         color: 'fekete-fehér',
         description: 'vidám, intelligens, odaadó',
         location: 'Szeged',
-        categories: ['All', 'Dog', 'Male']
+        categories: ['Dog', 'Male']
     },
 
     {
@@ -74,7 +74,7 @@ export const sample_pets: Pet[] = [
         color: 'barna-fekete',
         description: 'játékos, kíváncsi, édes',
         location: 'Győr',
-        categories: ['All', 'Cat', 'Female']
+        categories: ['Cat', 'Female']
     },
 
     {
@@ -89,7 +89,7 @@ export const sample_pets: Pet[] = [
         color: 'barna',
         description: 'barátságos, derűs, gyengéd',
         location: 'Pécs',
-        categories: ['All', 'Dog', 'Male']
+        categories: ['Dog', 'Male']
     },
 
     {
@@ -104,7 +104,7 @@ export const sample_pets: Pet[] = [
         color: 'szürke',
         description: 'elegáns, hűséges, nyugodt',
         location: 'Szombathely',
-        categories: ['All', 'Cat', 'Female']
+        categories: ['Cat', 'Female']
     },
 
     {
@@ -119,7 +119,7 @@ export const sample_pets: Pet[] = [
         color: 'fekete',
         description: 'játékos, éber, bátor',
         location: 'Miskolc',
-        categories: ['All', 'Dog', 'Female']
+        categories: ['Dog', 'Female']
     },
 
     {
@@ -134,7 +134,7 @@ export const sample_pets: Pet[] = [
         color: 'vörös',
         description: 'impozáns, barátságos, okos',
         location: 'Székesfehérvár',
-        categories: ['All', 'Cat', 'Male']
+        categories: ['Cat', 'Male']
     },
 
     {
@@ -149,7 +149,7 @@ export const sample_pets: Pet[] = [
         color: 'arany',
         description: 'vidám, szeretetteljes, lelkes',
         location: 'Kecskemét',
-        categories: ['All', 'Dog', 'Male']
+        categories: ['Dog', 'Male']
     }
 ]
 

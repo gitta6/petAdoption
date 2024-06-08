@@ -10,19 +10,24 @@ export class PetService {
 
   constructor() { }
 
-  getAll():Pet[]{
+  getAll(): Pet[] {
     return sample_pets;
   }
 
-  getAllPetsBySearchTerm(searchTerm:string){
+  getAllPetsBySearchTerm(searchTerm: string) {
     return this.getAll().filter(pet => pet.name.toLowerCase().includes(searchTerm.toLowerCase()))
   }
 
-  getAllCategories():Category[]{
+  getAllCategories(): Category[] {
     return sample_categories;
   }
 
-  getAllPetsByCategory(category:string):Pet[]{
-    return category == "All"? this.getAll() : this.getAll().filter(pet => pet.categories?.includes(category));
+  getAllPetsByCategory(category: string): Pet[] {
+    return category == "All" ? this.getAll() : this.getAll().filter(pet => pet.categories?.includes(category));
   }
+
+  getPetById(petID: string): Pet {
+    return this.getAll().find(pet => pet.id == petID) ?? new Pet();
+  }
+
 }

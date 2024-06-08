@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/pages/home/home.component';
+import { PetPageComponent } from './components/pages/pet-page/pet-page.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'search/:searchTerm', component: HomeComponent },
-  { path: 'category/:category', component: HomeComponent }
+  { path: 'category/:category', component: HomeComponent },
+  { path: 'pet/:id', component: PetPageComponent }
 ];
 
 @NgModule({

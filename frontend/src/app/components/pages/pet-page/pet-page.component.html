@@ -1,0 +1,57 @@
+<div class="container">
+    <img [src]="pet.imageUrl" [alt]="pet.name" />
+    <div class="details">
+        <div class="header">
+            <span class="name">
+                {{pet.name}}
+            </span>
+            <span class="favorite {{pet.favorite? '': 'not'}}">♥</span>
+        </div>
+        <div class="age">
+            <span>
+                {{pet.name}} is <strong>{{pet.age}}</strong> year(s) old.
+            </span>
+        </div>
+        <div class="species">
+            <span>
+                <strong>Species:</strong> {{pet.species}}
+            </span>
+        </div>
+        <div class="breed">
+            <span>
+                <strong>Breed:</strong> {{pet.breed}}
+            </span>
+        </div>
+        <div class="gender">
+            <span>
+                <strong>Gender:</strong> {{pet.gender}}
+            </span>
+        </div>
+        <div class="color">
+            <span>
+                <strong>Color:</strong> {{pet.color}}
+            </span>
+        </div>
+        <div class="location">
+            <span>
+                <strong>Location:</strong> {{pet.location}}
+            </span>
+        </div>
+        <div class="description">
+            <span>
+                <strong>Description:</strong> {{pet.description}}
+            </span>
+        </div>
+        <div class="categories">
+            <span>
+                <strong>Categories: </strong>
+                <a *ngFor="let category of pet.categories" routerLink="/category/{{category}}">
+                    {{category}}
+                </a>
+            </span>
+        </div>
+        <button>
+            Adopt!
+        </button>
+    </div>
+</div>
