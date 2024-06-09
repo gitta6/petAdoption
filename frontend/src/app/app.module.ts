@@ -8,9 +8,11 @@ import { HomeComponent } from './components/pages/home/home.component';
 import { CategoriesComponent } from './components/partials/categories/categories.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PetPageComponent } from './components/pages/pet-page/pet-page.component';
+import { FavoritesPageComponent } from './components/pages/favorites-page/favorites-page.component';
+import { TitleComponent } from './components/partials/title/title.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, HomeComponent, SearchComponent, CategoriesComponent, PetPageComponent],
+  declarations: [AppComponent, HeaderComponent, HomeComponent, SearchComponent, CategoriesComponent, PetPageComponent, FavoritesPageComponent, TitleComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FavoritesService } from '../../../services/favorites.service';
 
 @Component({
   selector: 'app-header',
@@ -6,7 +7,16 @@ import { Component } from '@angular/core';
   styleUrl: './header.component.css'
 })
 
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
+  /*favoritesQuantity=0;
+  constructor(favoritesService:FavoritesService) {
+    favoritesService.getFavoritesObservable().subscribe((newFavorites) => {
+      this.favoritesQuantity = newFavorites.totalCount;
+    })
+  }
+*/
+  ngOnInit(): void {
 
+  }
 }
 

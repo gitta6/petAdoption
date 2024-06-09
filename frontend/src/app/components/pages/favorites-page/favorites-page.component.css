@@ -1,0 +1,68 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin: 2rem;
+  margin-top: 0.5rem;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  flex: 3 0;
+  justify-content: space-evenly;
+  border: none;
+  border-radius: 0.4rem;
+}
+
+ul li {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  border: 1px solid rgba(74, 151, 125, 0.7);
+  border-radius: 0.4rem;
+  margin: 1rem;
+  background-color: rgba(74, 151, 125, 0.1);
+}
+
+li img {
+  width: 15rem;
+  height: 15rem;
+  border-radius: 0.4rem;
+  object-fit: cover;
+}
+
+li .name {
+  font-size: 2rem;
+}
+
+li div {
+  padding: 1.5rem;
+}
+
+li .remove-button {
+  color: white;
+  background: rgba(74, 151, 125, 0.7);
+  padding: 1rem;
+  border-radius: 1.5rem;
+  font-size: 1rem;
+  outline: none;
+  border: 1px solid white;
+}
+
+li .remove-button:hover {
+  background: rgba(74, 151, 125, 0.9);
+  cursor: pointer;
+}
+
+.pets-count {
+  font-size: 2rem;
+  border-radius: 10rem;
+  padding: 1rem;
+  background-color: peachpuff;
+}
+
+.pets-count:hover {
+  opacity: 0.8;
+}

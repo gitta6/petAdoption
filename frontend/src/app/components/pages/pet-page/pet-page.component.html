@@ -5,7 +5,7 @@
             <span class="name">
                 {{pet.name}}
             </span>
-            <span class="favorite {{pet.favorite? '': 'not'}}">♥</span>
+            <span class="favorite {{pet.favorite? '': 'not'}}" (click)="addToFavorites()">♥</span>
         </div>
         <div class="age">
             <span>

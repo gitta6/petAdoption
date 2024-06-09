@@ -1,0 +1,25 @@
+<app-title title="Favorites page" margin="1.5rem 0 0 3rem"></app-title>
+<div class="container">
+    <ul>
+        <li *ngFor="let favoritePet of favorites.pets">
+            <div>
+                <img [src]="favoritePet.pet.imageUrl" [alt]="favoritePet.pet.name">
+            </div>
+            <div class="name">
+                <a routerLink="/pet/{{favoritePet.pet.id}}">
+                    {{favoritePet.pet.name}}
+                </a>
+            </div>
+            <div>
+                <button class="remove-button" (click)="removeFromFavorites(favoritePet)">
+                    Remove from favorites
+                </button>
+            </div>
+        </li>
+    </ul>
+    <div class="total">
+        <div class="pets-count">
+            ♥ {{favorites.totalCount}}
+        </div>
+    </div>
+</div>
