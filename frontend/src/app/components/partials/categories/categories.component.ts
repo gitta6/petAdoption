@@ -10,6 +10,8 @@ import { PetService } from '../../../services/pet.service';
 export class CategoriesComponent {
   categories?: Category[];
   constructor(petService:PetService) {
-    this.categories = petService.getAllCategories();
+    petService.getAllCategories().subscribe(serverCategories => {
+      this.categories = serverCategories;
+    });
   }
 }

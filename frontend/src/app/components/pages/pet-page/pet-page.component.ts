@@ -10,13 +10,16 @@ import { NgOptimizedImage } from '@angular/common';
   templateUrl: './pet-page.component.html',
   styleUrl: './pet-page.component.css'
 })
-export class PetPageComponent implements OnInit{
+export class PetPageComponent implements OnInit {
   pet!: Pet;
   constructor(activatedRoute: ActivatedRoute, petService: PetService,
     private favoritesService: FavoritesService, private router: Router) {
     activatedRoute.params.subscribe((params) => {
-      if (params.id)
-        this.pet = petService.getPetById(params.id);
+      if (params.id) {
+        petService.getPetById(params.id).subscribe(serverPet => {
+          this.pet = serverPet;
+        });
+      }
     })
   }
 
@@ -25,7 +28,8 @@ export class PetPageComponent implements OnInit{
   }
 
   addToFavorites() {
-    this.favoritesService.addToFavorites(this.pet);
+    if (this.pet)
+      this.favoritesService.addToFavorites(this.pet);
     this.router.navigateByUrl('/favorites-page')
   }
 }

@@ -9,40 +9,41 @@ import { FavoritePet } from '../shared/models/FavoritePet';
   providedIn: 'root'
 })
 export class FavoritesService {
-  private favorites: Favorites = this.getFavoritesFromLocalStorage();
+  private favorites: Favorites = new Favorites;
   private favoriteSubject: BehaviorSubject<Favorites> = new BehaviorSubject(this.favorites);
   constructor() { }
 
   addToFavorites(pet: Pet): void {
-    let favoritePet = this.favorites.pets.find(item => item.pet.id == pet.id)
+    let favoritePet = this.favorites.pets.find(item => item.pet.id === pet.id)
     if (favoritePet)
       return;
     this.favorites.pets.push(new FavoritePet(pet));
-    this.setFavoritesToLocalStorage();
-  }
+    this.updateFavorites();
+  };
 
   removeFromFavorites(petId: string): void {
     this.favorites.pets = this.favorites.pets.filter(item => item.pet.id != petId);
-    this.setFavoritesToLocalStorage();
-  }
+    this.updateFavorites();
+  };
 
   clearFavorites() {
     this.favorites = new Favorites();
-  }
+    this.updateFavorites();
+  };
 
   getFavoritesObservable(): Observable<Favorites> {
     return this.favoriteSubject.asObservable();
-  }
+  };
 
-  private setFavoritesToLocalStorage(): void {
-    this.favorites.totalCount = this.favorites.pets.reduce((prevSum, currentItem) => prevSum + currentItem.quantity, 0);  //neccessary?
-    const favoritesJson = JSON.stringify(this.favorites);
-    localStorage.setItem('Favorites', favoritesJson);
+  getFavorites() : Favorites {
+    return this.favoriteSubject.value;
+  };
+
+  private updateFavorites(): void {
+    this.favorites.totalCount = this.favorites.pets.reduce(
+      (prevSum, currentItem) => prevSum + currentItem.quantity,
+      0
+    );
     this.favoriteSubject.next(this.favorites);
-  }
-
-  private getFavoritesFromLocalStorage(): Favorites {
-    const favoritesJson = localStorage.getItem('Favorites');
-    return favoritesJson ? JSON.parse(favoritesJson) : new Favorites();
-  }
+  };
 }

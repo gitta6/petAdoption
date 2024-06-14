@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Pet } from '../../../shared/models/Pet';
 import { PetService } from '../../../services/pet.service';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -11,15 +12,20 @@ import { ActivatedRoute } from '@angular/router';
 
 export class HomeComponent implements OnInit {
   pets: Pet[] = [];
-  
+
   constructor(private petService: PetService, activatedRoute: ActivatedRoute) {
+    let petsObservable: Observable<Pet[]>;
     activatedRoute.params.subscribe((params) => {
       if (params.searchTerm)
-        this.pets = this.petService.getAllPetsBySearchTerm(params.searchTerm);
+        petsObservable = this.petService.getAllPetsBySearchTerm(params.searchTerm);
       else if (params.category)
-        this.pets = this.petService.getAllPetsByCategory(params.category);
+        petsObservable = this.petService.getAllPetsByCategory(params.category);
       else
-        this.pets = petService.getAll();
+        petsObservable = petService.getAll();
+
+      petsObservable.subscribe((serverPets) => {
+        this.pets = serverPets;
+      })
     })
   }
 
