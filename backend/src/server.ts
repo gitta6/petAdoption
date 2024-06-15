@@ -42,7 +42,7 @@ app.post("/api/users/login", (req, res) => {
     if (user) {
         res.send(generateTokenResponse(user));
     } else {
-        res.setMaxListeners(400).send("Incorrect username or password!")
+        res.status(400).send("Incorrect username or password!");
     };
 });
 

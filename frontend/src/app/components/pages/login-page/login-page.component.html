@@ -10,8 +10,8 @@
                     <input formControlName="email" type="email" placeholder="E-mail" />
                 </div>
                 <div class="error-list" *ngIf="formControls.email.errors && isSubmitted">
-                    <div *ngIf="formControls.email.errors?.required">E-mail address should not be empty!</div>
-                    <div *ngIf="formControls.email.errors?.email">Incorrect e-mail format!</div>
+                    <div *ngIf="formControls.email.errors.required">E-mail address should not be empty!</div>
+                    <div *ngIf="formControls.email.errors.email">Incorrect e-mail format!</div>
                 </div>
             </div>
             <div class="input-container">
@@ -19,10 +19,10 @@
                     Password:
                 </label>
                 <div>
-                    <input formControlName="pw" type="password" placeholder="Password" />
+                    <input formControlName="password" type="password" placeholder="Password" />
                 </div>
-                <div class="error-list" *ngIf="formControls.pw.errors && isSubmitted">
-                    <div *ngIf="formControls.pw.errors?.required">Password should not be empty!</div>
+                <div class="error-list" *ngIf="formControls.password.errors && isSubmitted">
+                    <div *ngIf="formControls.password.errors.required">Password should not be empty!</div>
                 </div>
             </div>
             <div class="sign-in-button">

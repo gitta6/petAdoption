@@ -2,20 +2,20 @@
     <div class="container">
         <nav>
             <ul>
-                <li>
+                <li *ngIf="!isAuthenticated">
                     <a routerLink="/login">Login</a>
                 </li>
-                <li class="menu-container">
-                    <a routerLink="/dashboard">Gitta</a>
+                <li *ngIf="isAuthenticated" class="menu-container">
+                    <a routerLink="/dashboard">{{user.name}}</a>
                     <div class="menu">
                         <a routerLink="/profile">Profile</a>
                         <!-- <a routerlink = ""></a> something can go here as well -->
-                        <a>Sign Out</a>
+                        <a (click)="logout()">Sign Out</a>
                     </div>
                 </li>
                 <li>
                     <a routerLink="/favorites-page">
-                        Favorites <span>3</span> <!-- needs adjustments -->
+                        Favorites <span *ngIf="favoritesQuantity">{{favoritesQuantity}}</span> <!-- needs adjustments -->
                     </a>
                 </li>
             </ul>
