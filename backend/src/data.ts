@@ -157,3 +157,34 @@ export const sample_categories: any[] = [
     { name: 'Male', count: 6 },
     { name: 'Female', count: 4 }
 ]
+
+export const sample_users: any[] = [
+    {
+        name: "Gitta Potoczki",
+        email: "gittap@petadoption.com",
+        password: "lalala",
+        address: "Kazincbarcika",
+        isAdmin: true,
+    },
+    {
+        name: "Emily Johnson",
+        email: "emily.johnson@example.com",
+        password: "password123",
+        address: "New York",
+        isAdmin: false
+    },
+    {
+        name: "David Wilson",
+        email: "david.wilson@example.com",
+        password: "ilovemycat",
+        address: "Moscow",
+        isAdmin: false
+    },
+    {
+        name: "Sophia Martinez",
+        email: "sophia.martinez@example.com",
+        password: "sophia123",
+        address: "Rhodes",
+        isAdmin: false
+    },
+];

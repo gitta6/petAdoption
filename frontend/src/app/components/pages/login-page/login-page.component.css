@@ -1,0 +1,56 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin-top: 5rem;
+}
+
+.details {
+  background-color:  rgba(74, 151, 125, 0.1);
+  padding: 1.6rem;
+  border-radius: 0.4rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+  width: 20rem;
+}
+
+.input-container {
+  margin-bottom: 2rem;
+  margin-top: 1.5rem;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1.2rem;
+  border: 0.1rem solid #ccc;
+  border-radius: 0.4rem;
+}
+
+.error-list {
+  color: rgb(181, 55, 55);
+  margin-top: 0.5rem;
+}
+.sign-in-button {
+  text-align: center;
+}
+
+.sign-in-button button {
+  margin-top: 2rem;
+  background-color: rgba(74, 151, 125, 0.7);
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  font-size: 1.6rem;
+}
+
+.sign-in-button button:hover {
+  background-color: rgba(74, 151, 125, 0.9);
+}
