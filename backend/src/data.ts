@@ -160,8 +160,8 @@ export const sample_categories: any[] = [
 
 export const sample_users: any[] = [
     {
-        name: "Gitta Potoczki",
-        email: "gittap@petadoption.com",
+        name: "Gitta P",
+        email: "gittap@example.com",
         password: "lalala",
         address: "Kazincbarcika",
         isAdmin: true,
