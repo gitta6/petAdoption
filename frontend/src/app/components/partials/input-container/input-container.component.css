@@ -1,0 +1,22 @@
+.container {
+  position: relative;
+  margin-bottom: 1.25rem;
+  border-radius: 0.4rem;
+  padding-top: 0.3rem;
+  border: 1px solid rgb(255, 218, 185);
+}
+
+label {
+  display: inline-block;
+  margin-left: 0.5rem;
+  font-size: 0.9rem;
+  color: rgba(74, 151, 125, 0.7);
+  font-size: 1rem;
+}
+
+.content {
+  padding: 0 0.75rem;
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+}
