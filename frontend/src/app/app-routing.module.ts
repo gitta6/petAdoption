@@ -4,6 +4,7 @@ import { HomeComponent } from './components/pages/home/home.component';
 import { PetPageComponent } from './components/pages/pet-page/pet-page.component';
 import { FavoritesPageComponent } from './components/pages/favorites-page/favorites-page.component';
 import { LoginPageComponent } from './components/pages/login-page/login-page.component';
+import { RegisterPageComponent } from './components/pages/register-page/register-page.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -11,7 +12,8 @@ const routes: Routes = [
   { path: 'category/:category', component: HomeComponent },
   { path: 'pet/:id', component: PetPageComponent },
   { path: 'favorites-page', component: FavoritesPageComponent },
-  { path: 'login', component: LoginPageComponent }
+  { path: 'login', component: LoginPageComponent },
+  { path: 'register', component: RegisterPageComponent }
 ];
 
 @NgModule({
