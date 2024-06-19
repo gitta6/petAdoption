@@ -23,11 +23,12 @@ router.get("/seed", asyncHandler(
 router.post("/login", asyncHandler(
     async (req, res) => {
         const { email, password } = req.body;
-        const user = await UserModel.findOne({ email, password });
-        if (user) {
+        const user = await UserModel.findOne({ email });
+        if (user && (await bcrypt.compare(password, user.password))) {
             res.send(generateTokenResponse(user));
         } else {
-            res.status(HTTP_BAD_REQUEST).send("Incorrect username or password!");
+            //res.status(HTTP_BAD_REQUEST).send("Incorrect username or password!");
+            res.status(HTTP_BAD_REQUEST).json({ message: "Incorrect username or password!" });
         };
     }
 ));
@@ -37,7 +38,8 @@ router.post('/register', asyncHandler(
         const { name, email, password, address } = req.body;
         const user = await UserModel.findOne({ email });
         if (user) {
-            res.status(HTTP_BAD_REQUEST).send("This user already exists. Please sign in!");
+            //res.status(HTTP_BAD_REQUEST).send("This user already exists. Please sign in!");
+            res.status(HTTP_BAD_REQUEST).json({ message: "This user already exists. Please sign in!" });
             return;
         }
         const encryptedPassword = await bcrypt.hash(password, 10);

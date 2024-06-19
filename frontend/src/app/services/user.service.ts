@@ -3,7 +3,7 @@ import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { User } from '../shared/models/User';
 import { IUserLogin } from '../shared/interfaces/IUserLogin';
 import { HttpClient } from '@angular/common/http';
-import { USER_LOGIN_URL } from '../shared/constants/urls';
+import { USER_LOGIN_URL, USER_REGISTER_URL } from '../shared/constants/urls';
 import { ToastrService } from 'ngx-toastr';
 import { IUSerRegister } from '../shared/interfaces/IUserRegister';
 
@@ -32,7 +32,8 @@ export class UserService {
           this.toastrService.success(`Welcome to PetAdoption, ${user.name}!`, 'Login successful.');
         },
         error: (errorResponse) => {
-          this.toastrService.error(errorResponse.error, 'Login failed.');
+          const errorMessage = errorResponse.error?.message || 'Login failed.';
+          this.toastrService.error(errorMessage, 'Login failed.');
         }
       })
     );
