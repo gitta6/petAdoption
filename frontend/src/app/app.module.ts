@@ -6,7 +6,7 @@ import { HeaderComponent } from './components/partials/header/header.component';
 import { SearchComponent } from './components/partials/search/search.component';
 import { HomeComponent } from './components/pages/home/home.component';
 import { CategoriesComponent } from './components/partials/categories/categories.component';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS, provideHttpClient, withFetch } from '@angular/common/http';
 import { PetPageComponent } from './components/pages/pet-page/pet-page.component';
 import { FavoritesPageComponent } from './components/pages/favorites-page/favorites-page.component';
 import { TitleComponent } from './components/partials/title/title.component';
@@ -22,6 +22,7 @@ import { InputValidationComponent } from './components/partials/input-validation
 import { TextInputComponent } from './components/partials/text-input/text-input.component';
 import { LoadingComponent } from './components/partials/loading/loading.component';
 import { LoadingInterceptor } from './shared/interceptors/loading.interceptor';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, HomeComponent, SearchComponent, CategoriesComponent,
@@ -33,7 +34,8 @@ import { LoadingInterceptor } from './shared/interceptors/loading.interceptor';
     ToastrModule.forRoot({ timeOut: 3000, positionClass: 'toast-bottom-right', newestOnTop: false })
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
+    UserService
   ],
   bootstrap: [AppComponent]
 })

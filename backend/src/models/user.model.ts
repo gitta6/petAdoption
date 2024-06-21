@@ -1,4 +1,4 @@
-import { model, Schema } from "mongoose";
+import mongoose, { model, Schema } from "mongoose";
 
 export interface User {
     id: string;
@@ -7,6 +7,7 @@ export interface User {
     name: string;
     address: string;
     isAdmin: boolean;
+    favorites: string[];
 };
 
 export const UserSchema = new Schema<User>({
@@ -15,6 +16,7 @@ export const UserSchema = new Schema<User>({
     password: { type: String, required: true },
     address: { type: String, required: true },
     isAdmin: { type: Boolean, required: true },
+    favorites: [{ type: Schema.Types.ObjectId, ref: 'Pet' }]
 },
     {
         timestamps: true,
@@ -27,4 +29,4 @@ export const UserSchema = new Schema<User>({
     }
 );
 
-export const UserModel = model<User>('user', UserSchema);
+export const UserModel = mongoose.model<User>('user', UserSchema);

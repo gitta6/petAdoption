@@ -7,3 +7,6 @@ export const PETS_BY_ID_URL = PETS_URL + '/';
 export const PETS_BY_CATEGORY_URL = PETS_URL + '/category/';
 export const USER_LOGIN_URL = BASE_URL + '/api/users/login';
 export const USER_REGISTER_URL = BASE_URL + '/api/users/register';
+export const USER_FAVORITES_ADD_URL = BASE_URL + '/api/users/add';
+export const USER_FAVORITES_REMOVE_URL = BASE_URL + '/api/users/remove';
+export const USER_FAVORITES_URL = BASE_URL + '/api/users/favorites';

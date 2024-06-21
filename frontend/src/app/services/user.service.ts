@@ -15,8 +15,8 @@ const USER_KEY = 'User';
 
 export class UserService {
   private userSubject = new BehaviorSubject<User>(this.getUserFromLocalStorage());
-  //private userSubject = new BehaviorSubject<User>(new User());
   public userObservable: Observable<User>;
+  private tokenSubject: BehaviorSubject<string | null> = new BehaviorSubject<string | null>(this.getTokenFromLocalStorage());
 
   constructor(private http: HttpClient, private toastrService: ToastrService) {
     this.userObservable = this.userSubject.asObservable();
@@ -26,7 +26,6 @@ export class UserService {
     return this.http.post<User>(USER_LOGIN_URL, userLogin).pipe(
       tap({
         next: (user) => {
-          //console.log('Login successful, user:', user);
           this.setUserToLocalStorage(user);
           this.userSubject.next(user);
           this.toastrService.success(`Welcome to PetAdoption, ${user.name}!`, 'Login successful.');
@@ -37,7 +36,6 @@ export class UserService {
         }
       })
     );
-
   };
 
   register(userRegister: IUSerRegister): Observable<User> {
@@ -52,7 +50,7 @@ export class UserService {
           this.toastrService.error(errorResponse.error, 'Register failed!');
         }
       })
-    )
+    );
   };
 
   getUser(): User {
@@ -62,12 +60,15 @@ export class UserService {
   logout() {
     this.userSubject.next(new User());
     localStorage.removeItem(USER_KEY);
+    localStorage.removeItem('token'); 
     window.location.reload();
   };
 
   private setUserToLocalStorage(user: User) {
     if (typeof localStorage !== 'undefined') {
       localStorage.setItem(USER_KEY, JSON.stringify(user));
+      localStorage.setItem('token', user.token); 
+      this.tokenSubject.next(user.token);
     } else {
       console.error('localStorage is not available.');
     };
@@ -79,10 +80,23 @@ export class UserService {
       if (userJSON) return JSON.parse(userJSON) as User;
     } else {
       console.error('localStorage is not available.');
-    }
+    };
     return new User();
   };
-}
+
+  private getTokenFromLocalStorage(): string | null {
+    if (typeof localStorage !== 'undefined') {
+      return localStorage.getItem('token');
+    } else {
+      console.error('localStorage is not available.');
+    };
+    return null;
+  };
+
+  getToken(): Observable<string | null> {
+    return this.tokenSubject.asObservable();
+  };
+};
 
 
 /*
