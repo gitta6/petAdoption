@@ -60,14 +60,14 @@ export class UserService {
   logout() {
     this.userSubject.next(new User());
     localStorage.removeItem(USER_KEY);
-    localStorage.removeItem('token'); 
+    localStorage.removeItem('token');
     window.location.reload();
   };
 
   private setUserToLocalStorage(user: User) {
     if (typeof localStorage !== 'undefined') {
       localStorage.setItem(USER_KEY, JSON.stringify(user));
-      localStorage.setItem('token', user.token); 
+      localStorage.setItem('token', user.token);
       this.tokenSubject.next(user.token);
     } else {
       console.error('localStorage is not available.');
@@ -96,6 +96,12 @@ export class UserService {
   getToken(): Observable<string | null> {
     return this.tokenSubject.asObservable();
   };
+
+  isLoggedIn(): boolean {
+    const user = this.getUser();
+    return !!user.token;
+  }
+
 };
 
 

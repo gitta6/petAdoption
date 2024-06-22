@@ -3,6 +3,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { PetService } from '../../../services/pet.service';
 import { Pet } from '../../../shared/models/Pet';
 import { FavoritesService } from '../../../services/favorites.service';
+import { ToastrService } from 'ngx-toastr';
+import { UserService } from '../../../services/user.service';
+import { User } from '../../../shared/models/User';
 
 @Component({
   selector: 'app-pet-page',
@@ -12,12 +15,16 @@ import { FavoritesService } from '../../../services/favorites.service';
 
 export class PetPageComponent implements OnInit {
   pet!: Pet;
+  message: string = 'default';
+  user!: User;
 
   constructor(
     activatedRoute: ActivatedRoute,
     petService: PetService,
     private favoritesService: FavoritesService,
-    private router: Router
+    private router: Router,
+    private toastrService: ToastrService,
+    private userService: UserService
   ) {
     activatedRoute.params.subscribe((params) => {
       if (params.id) {
@@ -28,12 +35,21 @@ export class PetPageComponent implements OnInit {
     });
   };
 
+  get isAuthenticated() {
+    return this.user;
+  };
+
   ngOnInit(): void { }
 
   addToFavorites() {
+    if (!this.userService.isLoggedIn()) {
+      this.toastrService.info(`Adding to favorites is only available to logged in users!`, 'Login Required');
+      return;
+    }
+
     if (this.pet) {
       this.favoritesService.addToFavorites(this.pet);
-      this.router.navigateByUrl('/favorites-page');
+      this.toastrService.success(`To remove, go to your Favorites page.`, 'This pet is one of your favorites! ♥');
     };
   };
 };

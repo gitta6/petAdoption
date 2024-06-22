@@ -20,7 +20,7 @@ export class FavoritesService {
     this.loadFavorites();
   }
 
-  addToFavorites(pet: Pet): void {
+  addToFavorites(pet: Pet) {
     this.userService.getToken().pipe(
       filter(token => token !== null),
       switchMap(token => {

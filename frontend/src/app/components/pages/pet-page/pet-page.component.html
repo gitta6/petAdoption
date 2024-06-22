@@ -6,7 +6,9 @@
             <span class="name">
                 {{pet.name}}
             </span>
-            <span class="favorite {{pet.favorite? '': 'not'}}" (click)="addToFavorites()">♥</span>
+            <span>
+                <button class="favorites-button" (click)="addToFavorites()">Add to favorites!♥</button>
+            </span>
         </div>
         <div class="age">
             <span>

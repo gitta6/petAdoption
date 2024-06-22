@@ -32,7 +32,7 @@ img {
   font-size: 2.5rem;
   font-style: italic;
 }
-
+/*
 .favorite {
   color: rgb(231, 61, 95);
   font-size: 2.5rem;
@@ -40,7 +40,7 @@ img {
 
 .favorite.not {
   color: rgb(112, 112, 112);
-}
+}*/
 
 .details div {
   margin-bottom: 1rem;
