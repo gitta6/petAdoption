@@ -139,12 +139,7 @@ router.get('/favorites', authMiddleware, async (req: AuthRequest, res: Response)
             console.log("User not found");
             return res.status(404).json({ message: "User not found" });
         }
-
-        console.log(`User found: ${user}`);
-        console.log(`User's favorites: ${user.favorites}`);
-
         const favoritePets = await PetModel.find({ _id: { $in: user.favorites } });
-        console.log(`Favorite pets found: ${favoritePets}`);
 
         res.json(favoritePets);
     } catch (error) {
