@@ -1,73 +1,77 @@
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0;
-    padding: 0 1rem;
-  }
-  
-  .wrapper {
-    background-color: #fff;
-    padding: 2rem;
-    border-radius: 0.4rem;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 30rem;
-    margin: 0 auto;
-  }
-  
-  .wrapper > div {
-    margin-bottom: 1.5rem;
-  }
-  
-  .label {
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-    display: block;
-  }
-  
-  .form-input {
-    width: 100%;
-    padding: 0.5rem;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 0.4rem;
-    transition: border-color 0.15s ease-in-out;
-  }
-  
-  .form-input:focus {
-    outline: none;
-    border-color: rgb(74, 151, 125);
-  }
-  
-  .form-textarea {
-    width: 100%;
-    padding: 0.5rem;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 0.3rem;
-    transition: border-color 0.15s ease-in-out;
-    resize: vertical;
-    min-height: 6rem;
-  }
-  
-  .button {
-    background-color: rgba(74, 151, 125, 0.8);
-    color: #fff;
-    border: none;
-    padding: 0.8rem 1.5rem;
-    border-radius: 0.4rem;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.15s ease-in-out;
-    margin-top: 0.5rem;
-  }
-  
-  .button:hover {
-    background-color: rgb(74, 151, 125);
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+  padding: 0 1rem;
+}
 
-  .form-text {
-    color: rgb(251, 171, 100);
-  }
-  
+.wrapper {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 0.4rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 30rem;
+  margin: 0 auto;
+}
+
+.wrapper > div {
+  margin-bottom: 1.5rem;
+}
+
+.label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.4rem;
+  transition: border-color 0.15s ease-in-out;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: rgb(74, 151, 125);
+}
+
+.form-textarea {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.3rem;
+  transition: border-color 0.15s ease-in-out;
+  resize: vertical;
+  min-height: 6rem;
+}
+
+.button {
+  background-color: rgba(74, 151, 125, 0.8);
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.15s ease-in-out;
+  margin-top: 0.5rem;
+}
+
+.button:hover {
+  background-color: rgb(74, 151, 125);
+}
+
+.form-text {
+  color: rgb(251, 171, 100);
+}
+
+.info-text {
+  font-weight: bold;
+  color: rgba(74, 151, 125, 0.8);
+}

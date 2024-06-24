@@ -4,19 +4,35 @@
             <div>
                 <label for="name" class="label">Name:</label>
                 <input type="text" id="name" [(ngModel)]="pet.name" name="name" class="form-input" required>
+                <small class="form-text text-muted"
+                    *ngIf="petForm.controls['name'].invalid && (petForm.controls['name'].dirty || petForm.controls['name'].touched)">
+                    Name is required!
+                </small>
             </div>
             <div>
                 <label for="age" class="label">Age:</label>
                 <input type="number" id="age" [(ngModel)]="pet.age" name="age" class="form-input" min="0" step="0.1"
                     required>
+                <small class="form-text text-muted"
+                    *ngIf="petForm.controls['age'].invalid && (petForm.controls['age'].dirty || petForm.controls['age'].touched)">
+                    Age must be a positive number!
+                </small>
             </div>
             <div>
                 <label for="species" class="label">Species:</label>
                 <input type="text" id="species" [(ngModel)]="pet.species" name="species" class="form-input" required>
+                <small class="form-text text-muted"
+                    *ngIf="petForm.controls['species'].invalid && (petForm.controls['species'].dirty || petForm.controls['species'].touched)">
+                    Species is required!
+                </small>
             </div>
             <div>
                 <label for="breed" class="label">Breed:</label>
                 <input type="text" id="breed" [(ngModel)]="pet.breed" name="breed" class="form-input" required>
+                <small class="form-text text-muted"
+                    *ngIf="petForm.controls['breed'].invalid && (petForm.controls['breed'].dirty || petForm.controls['breed'].touched)">
+                    Breed is required!
+                </small>
             </div>
             <div>
                 <label for="gender" class="label">Gender:</label>
@@ -24,19 +40,35 @@
                     <option value="Hím">Hím</option>
                     <option value="Nőstény">Nőstény</option>
                 </select>
+                <small class="form-text text-muted"
+                    *ngIf="petForm.controls['gender'].invalid && (petForm.controls['gender'].dirty || petForm.controls['gender'].touched)">
+                    Gender is required!
+                </small>
             </div>
             <div>
                 <label for="color" class="label">Color:</label>
                 <input type="text" id="color" [(ngModel)]="pet.color" name="color" class="form-input" required>
+                <small class="form-text text-muted"
+                    *ngIf="petForm.controls['color'].invalid && (petForm.controls['color'].dirty || petForm.controls['color'].touched)">
+                    Color is required!
+                </small>
             </div>
             <div>
                 <label for="description" class="label">Description:</label>
                 <textarea id="description" [(ngModel)]="pet.description" name="description" class="form-textarea"
                     required></textarea>
+                <small class="form-text text-muted"
+                    *ngIf="petForm.controls['description'].invalid && (petForm.controls['description'].dirty || petForm.controls['description'].touched)">
+                    Description is required!
+                </small>
             </div>
             <div>
                 <label for="location" class="label">Location:</label>
                 <input type="text" id="location" [(ngModel)]="pet.location" name="location" class="form-input" required>
+                <small class="form-text text-muted"
+                    *ngIf="petForm.controls['location'].invalid && (petForm.controls['location'].dirty || petForm.controls['location'].touched)">
+                    Location is required!
+                </small>
             </div>
             <div>
                 <label for="image" class="label">Image:</label>
@@ -44,6 +76,9 @@
                 <small class="form-text text-muted">The image upload is under construction.</small>
             </div>
             <button type="submit" class="button">Upload Pet</button>
+            <div>
+                <small class="info-text">ⓘ Category tags are automatically filtered from the values entered.</small>
+            </div>
         </form>
     </div>
 </div>
