@@ -9,12 +9,12 @@ img {
   border-radius: 0.5rem;
   object-fit: cover;
   height: 35rem;
-  width: 35rem; 
-  margin-left: 2rem; 
+  width: 35rem;
+  margin-left: 2rem;
 }
 
 .details {
-  flex: 1; 
+  flex: 1;
   padding: 0.5rem;
   margin-left: 1rem;
 }
@@ -68,10 +68,31 @@ button {
   font-size: 1.7rem;
   outline: auto;
   width: 100%;
-  box-sizing: border-box; 
+  box-sizing: border-box;
 }
-
 
 button:hover {
   background: rgba(74, 151, 125, 0.9);
+  cursor: pointer;
+}
+
+.delete-button {
+  color: white;
+  background: rgba(255, 0, 0, 0.6);
+  padding: 1rem;
+  border-radius: 1.5rem;
+  font-size: 1.7rem;
+  outline: auto;
+  width: 25%;
+  box-sizing: border-box;
+  align-items: center;
+  display: block;
+  margin: 0 auto; 
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.delete-button:hover {
+  background: rgba(255, 0, 0, 0.9);
+  cursor: pointer;
 }

@@ -56,5 +56,8 @@
         <button>
             Adopt!
         </button>
+        <button *ngIf="isAdmin" (click)="onDeletePet(pet.id)" class="delete-button">
+            Delete
+        </button>
     </div>
 </div>

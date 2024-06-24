@@ -11,4 +11,5 @@ export const USER_FAVORITES_ADD_URL = BASE_URL + '/api/users/add';
 export const USER_FAVORITES_REMOVE_URL = BASE_URL + '/api/users/remove';
 export const USER_FAVORITES_URL = BASE_URL + '/api/users/favorites';
 export const PET_UPLOAD_URL = BASE_URL + '/api/pet-upload';
+export const PET_DELETE_URL = (petId: string) => `${PETS_URL}/delete/${petId}`;
 

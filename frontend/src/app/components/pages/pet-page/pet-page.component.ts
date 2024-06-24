@@ -17,10 +17,11 @@ export class PetPageComponent implements OnInit {
   pet!: Pet;
   message: string = 'default';
   user!: User;
+  isAdmin: boolean = false;
 
   constructor(
     activatedRoute: ActivatedRoute,
-    petService: PetService,
+    private petService: PetService,
     private favoritesService: FavoritesService,
     private router: Router,
     private toastrService: ToastrService,
@@ -33,6 +34,7 @@ export class PetPageComponent implements OnInit {
         });
       }
     });
+    this.isAdmin = this.userService.isAdmin();
   };
 
   get isAuthenticated() {
@@ -50,6 +52,25 @@ export class PetPageComponent implements OnInit {
     if (this.pet) {
       this.favoritesService.addToFavorites(this.pet);
       this.toastrService.success(`To remove, go to your Favorites page.`, 'This pet is one of your favorites! ♥');
+    };
+  };
+
+  onDeletePet(id: string) {
+    if (confirm('Are you sure you want to delete this pet?')) {
+      console.log('Deleting pet with ID:', id);
+
+      this.petService.deletePet(id).subscribe({
+        next: () => {
+          this.toastrService.success(`Pet deleted successfully!`);
+          console.log('Pet deletion process completed.');
+          //window.location.reload();
+          this.router.navigateByUrl('/');
+        },
+        error: (error) => {
+          this.toastrService.error(`Failed to delete pet.`, 'Error');
+          console.error('Error deleting pet:', error);
+        }
+      });
     };
   };
 };

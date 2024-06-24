@@ -2,6 +2,7 @@ import { Router } from "express";
 import { sample_categories, sample_pets } from "../data";
 import asyncHandler from 'express-async-handler';
 import { PetModel } from "../models/pet.model";
+import mongoose from "mongoose";
 
 const router = Router();
 
@@ -72,6 +73,25 @@ router.get("/:petId", asyncHandler(
     async (req, res) => {
         const pet = await PetModel.findById(req.params.petId);
         res.send(pet);
+    }
+));
+
+router.delete("/delete/:petId", asyncHandler(
+    async (req, res) => {
+        const { petId } = req.params;
+
+        if (!mongoose.isValidObjectId(petId)) {
+            res.status(400).send({ message: 'Invalid pet ID.' });
+            return;
+        }
+
+        const deletedPet = await PetModel.findByIdAndDelete(petId);
+
+        if (deletedPet) {
+            res.status(200).send({ message: 'Pet deleted successfully.', deletedPet });
+        } else {
+            res.status(404).send({ message: 'Pet not found.' });
+        }
     }
 ));
 

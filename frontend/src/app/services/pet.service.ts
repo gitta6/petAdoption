@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Pet } from '../shared/models/Pet';
 import { Category } from '../shared/models/Category';
 import { HttpClient } from '@angular/common/http';
-import { Observable, catchError, map, throwError } from 'rxjs';
-import { PETS_BY_CATEGORY_URL, PETS_BY_ID_URL, PETS_BY_SEARCH_URL, PETS_CATEGORIES_URL, PETS_URL, PET_UPLOAD_URL } from '../shared/constants/urls';
+import { Observable, catchError, map, tap, throwError } from 'rxjs';
+import { PETS_BY_CATEGORY_URL, PETS_BY_ID_URL, PETS_BY_SEARCH_URL, PETS_CATEGORIES_URL, PETS_URL, PET_DELETE_URL, PET_UPLOAD_URL } from '../shared/constants/urls';
 import { environment } from '../../environments/environment';
 import { ToastrService } from 'ngx-toastr';
 
@@ -53,6 +53,16 @@ export class PetService {
       catchError((error) => {
         console.error('Error uploading pet:', error);
         throw error;
+      })
+    );
+  };
+
+  deletePet(petId: string): Observable<any> {
+    const url = PET_DELETE_URL(petId); 
+    return this.http.delete<any>(url).pipe(
+      tap({
+        next: () => console.log(`Pet with ID ${petId} successfully deleted.`),
+        error: error => console.error('Error deleting pet:', error)
       })
     );
   };

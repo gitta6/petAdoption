@@ -100,6 +100,11 @@ export class UserService {
   isLoggedIn(): boolean {
     const user = this.getUser();
     return !!user.token;
-  }
+  };
+
+  isAdmin(): boolean {
+    const user = this.getUser();
+    return user.isAdmin; 
+  };
 
 };
