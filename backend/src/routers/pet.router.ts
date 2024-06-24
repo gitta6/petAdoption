@@ -28,7 +28,18 @@ router.get("/", asyncHandler(
 router.get("/search/:searchTerm", asyncHandler(
     async (req, res) => {
         const searchRegex = new RegExp(req.params.searchTerm, 'i');
-        const pets = await PetModel.find({ name: { $regex: searchRegex } });
+        const pets = await PetModel.find({
+            $or: [
+                { name: { $regex: searchRegex } },
+                { species: { $regex: searchRegex } },
+                { breed: { $regex: searchRegex } },
+                { gender: { $regex: searchRegex } },
+                { color: { $regex: searchRegex } },
+                { location: { $regex: searchRegex } },
+                { description: { $regex: searchRegex } },
+                { categories: { $regex: searchRegex } },
+            ]
+        });
         res.send(pets);
     }
 ));
