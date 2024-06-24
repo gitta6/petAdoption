@@ -6,6 +6,7 @@ import { FavoritesService } from '../../../services/favorites.service';
 import { ToastrService } from 'ngx-toastr';
 import { UserService } from '../../../services/user.service';
 import { User } from '../../../shared/models/User';
+import { DEFAULT_PET_IMAGE_URL } from '../../../constants/defaultImage';
 
 @Component({
   selector: 'app-pet-page',
@@ -18,6 +19,7 @@ export class PetPageComponent implements OnInit {
   message: string = 'default';
   user!: User;
   isAdmin: boolean = false;
+  defaultImageUrl : string = DEFAULT_PET_IMAGE_URL;
 
   constructor(
     activatedRoute: ActivatedRoute,

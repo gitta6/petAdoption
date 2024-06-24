@@ -3,6 +3,7 @@ import { Pet } from '../../../shared/models/Pet';
 import { PetService } from '../../../services/pet.service';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+import { DEFAULT_PET_IMAGE_URL } from '../../../constants/defaultImage';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,8 @@ import { Observable } from 'rxjs';
 })
 
 export class HomeComponent implements OnInit {
-  pets: Pet[] = [];
+  pets: Pet[] = [];  
+  defaultImageUrl : string = DEFAULT_PET_IMAGE_URL;
 
   constructor(private petService: PetService, activatedRoute: ActivatedRoute) {
     let petsObservable: Observable<Pet[]>;
@@ -25,11 +27,11 @@ export class HomeComponent implements OnInit {
 
       petsObservable.subscribe((serverPets) => {
         this.pets = serverPets;
-      })
-    })
-  }
+      });
+    });
+  };
 
   ngOnInit(): void {
 
-  }
-}
+  };
+};

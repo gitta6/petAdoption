@@ -17,6 +17,7 @@ li a{
     flex-direction: column;
     overflow: hidden;
     color: rgb(74, 151, 125);
+    min-height: 30rem;
 }
 
 li a:hover{
@@ -29,6 +30,8 @@ li a:hover{
 li a img{
     object-fit: cover;
     height: 18rem;
+    width: 100%;
+    margin-bottom: 2rem;
 }
 
 .content{
@@ -36,6 +39,7 @@ li a img{
     padding: 1rem 1rem;
     position: relative;
     height: 7rem;
+    flex: 1;
 }
 
 .favorite{

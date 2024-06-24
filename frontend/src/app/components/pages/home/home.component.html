@@ -4,7 +4,8 @@
 <ul>
     <li *ngFor="let pet of pets">
         <a routerLink="/pet/{{pet.id}}">
-            <img [src]="pet.imageUrl" [alt]="pet.name" />
+            <img *ngIf="pet.imageUrl" [src]="pet.imageUrl" [alt]="pet.name" />
+            <img *ngIf="!pet.imageUrl" [src]="defaultImageUrl" [alt]="pet.name" />
             <div class="content">
                 <div class="name">
                     {{pet.name}}

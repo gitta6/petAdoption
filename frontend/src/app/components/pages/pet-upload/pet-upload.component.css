@@ -66,4 +66,8 @@
   .button:hover {
     background-color: rgb(74, 151, 125);
   }
+
+  .form-text {
+    color: rgb(251, 171, 100);
+  }
   

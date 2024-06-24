@@ -8,7 +8,7 @@
                 <li *ngIf="isAuthenticated" class="menu-container">
                     <a routerLink="/dashboard">{{user.name}}</a>
                     <div class="menu">
-                        <a>Profile</a>
+                        <!-- <a>Profile</a> -->
                         <a routerLink="/pet-upload">Upload a Pet</a>
                         <a (click)="logout()">Sign Out</a>
                     </div>
