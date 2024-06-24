@@ -55,6 +55,18 @@ export class PetPageComponent implements OnInit {
     };
   };
 
+  adopt() {
+    if (!this.userService.isLoggedIn()) {
+      this.toastrService.info(`Starting an adoption process is only available to logged in users!`, 'Login Required');
+      return;
+    }
+
+    if (this.pet) {
+      this.favoritesService.addToFavorites(this.pet);
+      this.toastrService.success(`We will contact you soon.`, 'Thank you for signing up to adopt ' + this.pet.name + '!');
+    };
+  };
+
   onDeletePet(id: string) {
     if (confirm('Are you sure you want to delete this pet?')) {
       console.log('Deleting pet with ID:', id);
