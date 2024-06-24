@@ -4,6 +4,8 @@ import { Pet } from '../../../shared/models/Pet';
 import { ToastrService } from 'ngx-toastr';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { User } from '../../../shared/models/User';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-pet-upload',
@@ -15,6 +17,7 @@ export class PetUploadComponent implements OnInit {
   selectedFile!: File;
   imageInvalid: boolean = false;
   imageFile: File | null = null;
+  user!: User;
 
   pet: Pet = {
     id: '',
@@ -36,7 +39,8 @@ export class PetUploadComponent implements OnInit {
   constructor(
     private petService: PetService,
     private toastrService: ToastrService,
-    private router: Router
+    private router: Router,
+    private userService: UserService
   ) { }
 
   ngOnInit(): void { }
@@ -67,6 +71,11 @@ export class PetUploadComponent implements OnInit {
   };
 
   onSubmit(form: NgForm) {
+    if (!this.userService.isLoggedIn()) {
+      this.toastrService.info(`Uploading pets is only available to logged in users!`, 'Login Required');
+      return;
+    };
+
     if (form.invalid || this.imageInvalid) {
       this.toastrService.error('Please fill all of the fields with a valid value!', 'Error');
       return;
