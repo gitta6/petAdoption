@@ -2,15 +2,18 @@ import { Injectable } from '@angular/core';
 import { Pet } from '../shared/models/Pet';
 import { Category } from '../shared/models/Category';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { PETS_BY_CATEGORY_URL, PETS_BY_ID_URL, PETS_BY_SEARCH_URL, PETS_CATEGORIES_URL, PETS_URL } from '../shared/constants/urls';
+import { Observable, catchError, map, throwError } from 'rxjs';
+import { PETS_BY_CATEGORY_URL, PETS_BY_ID_URL, PETS_BY_SEARCH_URL, PETS_CATEGORIES_URL, PETS_URL, PET_UPLOAD_URL } from '../shared/constants/urls';
+import { environment } from '../../environments/environment';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PetService {
+  //private apiUrl: string = environment.apiUrl;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private toastrService: ToastrService) { }
 
   getAll(): Observable<Pet[]> {
     return this.http.get<Pet[]>(PETS_URL);
@@ -31,4 +34,26 @@ export class PetService {
   getPetById(petID: string): Observable<Pet> {
     return this.http.get<Pet>(PETS_BY_ID_URL + petID)
   };
-}
+
+  uploadPet(formData: FormData): Observable<Pet> {
+    console.log('Uploading pet with FormData:', formData);
+
+    formData.forEach((value, key) => {
+      console.log(`FormData entry - Key: ${key}, Value: ${value}`);
+    });
+
+    return this.http.post<any>(PET_UPLOAD_URL, formData).pipe(
+      map(response => {
+        console.log('Response from server:', response);
+        if (response && response.pet) {
+          return response.pet as Pet;
+        }
+        throw new Error('Invalid response format');
+      }),
+      catchError((error) => {
+        console.error('Error uploading pet:', error);
+        throw error;
+      })
+    );
+  };
+};

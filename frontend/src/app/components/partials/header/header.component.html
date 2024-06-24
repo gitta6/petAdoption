@@ -8,14 +8,14 @@
                 <li *ngIf="isAuthenticated" class="menu-container">
                     <a routerLink="/dashboard">{{user.name}}</a>
                     <div class="menu">
-                        <a routerLink="/profile">Profile</a>
-                        <!-- <a routerlink = ""></a> something can go here as well -->
+                        <a>Profile</a>
+                        <a routerLink="/pet-upload">Upload a Pet</a>
                         <a (click)="logout()">Sign Out</a>
                     </div>
                 </li>
                 <li>
                     <a routerLink="/favorites-page">
-                        Favorites <span *ngIf="favoritesQuantity">{{favoritesQuantity}}</span> <!-- needs adjustments -->
+                        Favorites <span *ngIf="favoritesQuantity">{{favoritesQuantity}}</span>
                     </a>
                 </li>
             </ul>

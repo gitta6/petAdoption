@@ -23,10 +23,10 @@
                         {{pet.age}}
                     </div>
                     <div class="gender">
-                        <span *ngIf="pet.gender === 'nőstény'">
+                        <span *ngIf="pet.gender.toLocaleLowerCase() === 'nőstény'">
                             ♀️
                         </span>
-                        <span *ngIf="pet.gender === 'hím'">
+                        <span *ngIf="pet.gender.toLocaleLowerCase() === 'hím'">
                             ♂️
                         </span>
                     </div>

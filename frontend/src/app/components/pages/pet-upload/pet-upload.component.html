@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="wrapper">
+        <form (ngSubmit)="onSubmit(petForm)" #petForm="ngForm">
+            <div>
+                <label for="name" class="label">Name:</label>
+                <input type="text" id="name" [(ngModel)]="pet.name" name="name" class="form-input" required>
+            </div>
+            <div>
+                <label for="age" class="label">Age:</label>
+                <input type="number" id="age" [(ngModel)]="pet.age" name="age" class="form-input" min="0" step="0.1"
+                    required>
+            </div>
+            <div>
+                <label for="species" class="label">Species:</label>
+                <input type="text" id="species" [(ngModel)]="pet.species" name="species" class="form-input" required>
+            </div>
+            <div>
+                <label for="breed" class="label">Breed:</label>
+                <input type="text" id="breed" [(ngModel)]="pet.breed" name="breed" class="form-input" required>
+            </div>
+            <div>
+                <label for="gender" class="label">Gender:</label>
+                <select id="gender" [(ngModel)]="pet.gender" name="gender" class="form-input" required>
+                    <option value="Hím">Hím</option>
+                    <option value="Nőstény">Nőstény</option>
+                </select>
+            </div>
+            <div>
+                <label for="color" class="label">Color:</label>
+                <input type="text" id="color" [(ngModel)]="pet.color" name="color" class="form-input" required>
+            </div>
+            <div>
+                <label for="description" class="label">Description:</label>
+                <textarea id="description" [(ngModel)]="pet.description" name="description" class="form-textarea"
+                    required></textarea>
+            </div>
+            <div>
+                <label for="location" class="label">Location:</label>
+                <input type="text" id="location" [(ngModel)]="pet.location" name="location" class="form-input" required>
+            </div>
+            <div>
+                <label for="image" class="label">Image:</label>
+                <input type="file" id="image" (change)="onFileChanged($event)" class="form-input" required>
+            </div>
+            <button type="submit" class="button">Upload Pet</button>
+        </form>
+    </div>
+</div>

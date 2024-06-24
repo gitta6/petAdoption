@@ -8,7 +8,7 @@ import { PetService } from '../../../services/pet.service';
   styleUrl: './categories.component.css'
 })
 export class CategoriesComponent {
-  categories?: Category[];
+  categories!: Category[];
   constructor(petService:PetService) {
     petService.getAllCategories().subscribe(serverCategories => {
       this.categories = serverCategories;

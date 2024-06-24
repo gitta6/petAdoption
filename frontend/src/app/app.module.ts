@@ -12,7 +12,7 @@ import { FavoritesPageComponent } from './components/pages/favorites-page/favori
 import { TitleComponent } from './components/partials/title/title.component';
 import { NotFoundComponent } from './components/partials/not-found/not-found.component';
 import { LoginPageComponent } from './components/pages/login-page/login-page.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterPageComponent } from './components/pages/register-page/register-page.component';
@@ -23,14 +23,15 @@ import { TextInputComponent } from './components/partials/text-input/text-input.
 import { LoadingComponent } from './components/partials/loading/loading.component';
 import { LoadingInterceptor } from './shared/interceptors/loading.interceptor';
 import { UserService } from './services/user.service';
+import { PetUploadComponent } from './components/pages/pet-upload/pet-upload.component';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, HomeComponent, SearchComponent, CategoriesComponent,
     PetPageComponent, FavoritesPageComponent, TitleComponent, NotFoundComponent, LoginPageComponent,
     RegisterPageComponent, DefaultButtonComponent, InputContainerComponent, InputValidationComponent, TextInputComponent,
-    LoadingComponent],
+    LoadingComponent, PetUploadComponent],
   imports: [BrowserModule, BrowserAnimationsModule, AppRoutingModule, HttpClientModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule, FormsModule,
     ToastrModule.forRoot({ timeOut: 3000, positionClass: 'toast-bottom-right', newestOnTop: false })
   ],
   providers: [

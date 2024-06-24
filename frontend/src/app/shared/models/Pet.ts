@@ -6,9 +6,9 @@ export class Pet{
     breed!:string;
     gender!:string;
     favorite!:boolean;
-    imageUrl!:string;
-    color?:string;
+    imageUrl?:string;
+    color!:string;
     description?:string;
     location?: string;
-    categories?:string[];
+    categories!:string[];
 }
