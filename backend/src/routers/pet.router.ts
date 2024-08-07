@@ -106,4 +106,23 @@ router.delete("/delete/:petId", asyncHandler(
     }
 ));
 
+router.put("/:petId/update", asyncHandler(
+    async (req, res) => {
+        const { petId } = req.params;
+
+        if (!mongoose.isValidObjectId(petId)) {
+            res.status(400).send({ message: 'Invalid pet ID.' });
+            return;
+        }
+
+        const updatedPet = await PetModel.findByIdAndUpdate(petId, req.body, { new: true });
+
+        if (updatedPet) {
+            res.status(200).send(updatedPet);
+        } else {
+            res.status(404).send({ message: 'Pet not found.' });
+        }
+    }
+));
+
 export default router;
