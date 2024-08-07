@@ -60,5 +60,46 @@
         <button *ngIf="isAdmin" (click)="onDeletePet(pet.id)" class="delete-button">
             Delete
         </button>
+
+        <div *ngIf="isAdmin" class="admin-fields">
+            <h3>Edit Pet Details</h3>
+            <form (ngSubmit)="onSubmit()">
+                <label>
+                    Name:
+                    <input [value]="pet.name" disabled class="non-editable"/>
+                    <small class="form-text text-muted">Name cannot be modified.</small>
+                </label>
+                <label>
+                    Age:
+                    <input [(ngModel)]="pet.age" name="age" type="number" />
+                </label>
+                <label>
+                    Species:
+                    <input [(ngModel)]="pet.species" name="species" />
+                </label>
+                <label>
+                    Breed:
+                    <input [(ngModel)]="pet.breed" name="breed" />
+                </label>
+                <label>
+                    Gender
+                    <input [value]="pet.gender" disabled class="non-editable"/>
+                    <small class="form-text text-muted">Gender cannot be modified.</small>
+                </label>
+                <label>
+                    Color:
+                    <input [(ngModel)]="pet.color" name="color" />
+                </label>
+                <label>
+                    Location:
+                    <input [(ngModel)]="pet.location" name="location" />
+                </label>
+                <label>
+                    Description:
+                    <textarea [(ngModel)]="pet.description" name="description"></textarea>
+                </label>
+                <button type="submit">Save Changes</button>
+            </form>
+        </div>
     </div>
 </div>

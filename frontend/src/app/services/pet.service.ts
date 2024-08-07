@@ -3,7 +3,7 @@ import { Pet } from '../shared/models/Pet';
 import { Category } from '../shared/models/Category';
 import { HttpClient } from '@angular/common/http';
 import { Observable, catchError, map, tap, throwError } from 'rxjs';
-import { PETS_BY_CATEGORY_URL, PETS_BY_ID_URL, PETS_BY_SEARCH_URL, PETS_CATEGORIES_URL, PETS_URL, PET_DELETE_URL, PET_UPLOAD_URL } from '../shared/constants/urls';
+import { PETS_BY_CATEGORY_URL, PETS_BY_ID_URL, PETS_BY_SEARCH_URL, PETS_CATEGORIES_URL, PETS_URL, PET_DELETE_URL, PET_UPDATE_URL, PET_UPLOAD_URL } from '../shared/constants/urls';
 import { environment } from '../../environments/environment';
 import { ToastrService } from 'ngx-toastr';
 
@@ -63,6 +63,20 @@ export class PetService {
       tap({
         next: () => console.log(`Pet with ID ${petId} successfully deleted.`),
         error: error => console.error('Error deleting pet:', error)
+      })
+    );
+  };
+
+  updatePet(petId: string, updatedPet: Pet): Observable<Pet> {
+    const url = PET_UPDATE_URL(petId);
+    return this.http.put<Pet>(url, updatedPet).pipe(
+      tap({
+        next: (response) => console.log(`Pet with ID ${petId} successfully updated.`),
+        error: error => console.error('Error updating pet:', error)
+      }),
+      catchError((error) => {
+        console.error('Error updating pet:', error);
+        return throwError(error);
       })
     );
   };

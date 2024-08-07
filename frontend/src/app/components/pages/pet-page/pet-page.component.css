@@ -87,7 +87,7 @@ button:hover {
   box-sizing: border-box;
   align-items: center;
   display: block;
-  margin: 0 auto; 
+  margin: 0 auto;
   text-align: center;
   margin-top: 3rem;
 }
@@ -95,4 +95,52 @@ button:hover {
 .delete-button:hover {
   background: rgba(255, 0, 0, 0.9);
   cursor: pointer;
+}
+
+.admin-fields {
+  margin-top: 2rem;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  background: rgba(74, 151, 125, 0.1);
+}
+
+.admin-fields h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.admin-fields label {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.admin-fields input,
+.admin-fields textarea {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+
+.admin-fields textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.admin-fields .non-editable {
+  font-style: italic;
+  color: #999;
+  margin-top: 0.5rem;
+}
+
+.admin-fields .non-editable:hover {
+  cursor: not-allowed;
+}
+
+.text-muted {
+  color: rgb(251, 171, 100);
 }

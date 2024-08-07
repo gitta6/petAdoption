@@ -19,7 +19,8 @@ export class PetPageComponent implements OnInit {
   message: string = 'default';
   user!: User;
   isAdmin: boolean = false;
-  defaultImageUrl : string = DEFAULT_PET_IMAGE_URL;
+  defaultImageUrl: string = DEFAULT_PET_IMAGE_URL;
+  newCategory: string = '';
 
   constructor(
     activatedRoute: ActivatedRoute,
@@ -86,5 +87,22 @@ export class PetPageComponent implements OnInit {
         }
       });
     };
+  };
+
+  onSubmit() {
+    if (!this.pet.id) {
+      this.toastrService.error('Pet ID is missing', 'Error');
+      return;
+    };
+
+    this.petService.updatePet(this.pet.id, this.pet).subscribe({
+      next: () => {
+        this.toastrService.success('Pet updated successfully');
+      },
+      error: (error) => {
+        this.toastrService.error('Failed to update pet', 'Error');
+        console.error('Error updating pet:', error);
+      }
+    });
   };
 };
