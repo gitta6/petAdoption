@@ -4,7 +4,8 @@
     <ul>
         <li *ngFor="let favoritePet of favorites.pets">
             <div>
-                <img [src]="favoritePet.pet.imageUrl" [alt]="favoritePet.pet.name">
+                <img *ngIf="favoritePet.pet.imageUrl" [src]="favoritePet.pet.imageUrl" [alt]="favoritePet.pet.name" />
+                <img *ngIf="!favoritePet.pet.imageUrl" [src]="defaultImageUrl" [alt]="favoritePet.pet.name" />
             </div>
             <div class="name">
                 <a routerLink="/pet/{{favoritePet.pet.id}}">

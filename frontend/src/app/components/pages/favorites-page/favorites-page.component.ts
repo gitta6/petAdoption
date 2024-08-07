@@ -3,7 +3,7 @@ import { FavoritesService } from '../../../services/favorites.service';
 import { Favorites } from '../../../shared/models/Favorites';
 import { FavoritePet } from '../../../shared/models/FavoritePet';
 import { Subscription } from 'rxjs';
-
+import { DEFAULT_PET_IMAGE_URL } from '../../../constants/defaultImage';
 
 @Component({
     selector: 'app-favorites-page',
@@ -13,6 +13,7 @@ import { Subscription } from 'rxjs';
 export class FavoritesPageComponent implements OnInit, OnDestroy {
     favorites!: Favorites;
     private favoritesSubscription: Subscription;
+    defaultImageUrl : string = DEFAULT_PET_IMAGE_URL;
 
     constructor(private favoritesService: FavoritesService) {
       this.favoritesSubscription = this.favoritesService.getFavoritesObservable().subscribe((favorites) => {
