@@ -1,7 +1,7 @@
 <app-not-found [visible]="!pet" notFoundMessage="Pet not found." resetLinkText="Go to Homepage!"></app-not-found>
 <div *ngIf="pet" class="container">
-    <img *ngIf="pet.imageUrl" [src]="pet.imageUrl" [alt]="pet.name" />
-    <img *ngIf="!pet.imageUrl" [src]="defaultImageUrl" [alt]="pet.name" />
+    <img *ngIf="pet.image" [src]="pet.image" [alt]="pet.name" />
+    <img *ngIf="!pet.image" [src]="defaultImageUrl" [alt]="pet.name" />
     <div class="details">
         <div class="header">
             <span class="name">

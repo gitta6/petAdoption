@@ -7,7 +7,8 @@ export interface Pet extends Document {
     species: string;
     breed: string;
     gender: 'Hím' | 'Nőstény';
-    imageUrl: string;
+    //imageUrl: string;
+    image: String;
     color: string;
     description: string;
     location: string;
@@ -21,7 +22,8 @@ export const PetSchema = new Schema<Pet>({
     species: { type: String, required: true },
     breed: { type: String, required: true },
     gender: { type: String, required: true },
-    imageUrl: { type: String, required: false },
+    //imageUrl: { type: String, required: false },
+    image: { type: String, required: false },
     color: { type: String, required: true },
     description: { type: String, required: true },
     location: { type: String, required: true },
@@ -29,7 +31,10 @@ export const PetSchema = new Schema<Pet>({
     //user: { type: Schema.Types.ObjectId, ref: 'User', required: true },
 }, {
     toJSON: {
-        virtuals: true
+        virtuals: true,
+        transform: function (doc, ret) {
+            return ret;
+        }
     },
     toObject: {
         virtuals: true

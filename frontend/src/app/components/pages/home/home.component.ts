@@ -4,6 +4,7 @@ import { PetService } from '../../../services/pet.service';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { DEFAULT_PET_IMAGE_URL } from '../../../constants/defaultImage';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -12,10 +13,10 @@ import { DEFAULT_PET_IMAGE_URL } from '../../../constants/defaultImage';
 })
 
 export class HomeComponent implements OnInit {
-  pets: Pet[] = [];  
-  defaultImageUrl : string = DEFAULT_PET_IMAGE_URL;
+  pets: Pet[] = [];
+  defaultImageUrl: string = DEFAULT_PET_IMAGE_URL;
 
-  constructor(private petService: PetService, activatedRoute: ActivatedRoute) {
+  constructor(private petService: PetService, activatedRoute: ActivatedRoute, private sanitizer: DomSanitizer) {
     let petsObservable: Observable<Pet[]>;
     activatedRoute.params.subscribe((params) => {
       if (params.searchTerm)
@@ -26,12 +27,22 @@ export class HomeComponent implements OnInit {
         petsObservable = petService.getAll();
 
       petsObservable.subscribe((serverPets) => {
-        this.pets = serverPets;
+        this.pets = serverPets.map(pet => ({
+          ...pet,
+          image: this.sanitizeImage(pet.image)
+        }));
       });
     });
   };
 
   ngOnInit(): void {
 
+  };
+
+  sanitizeImage(image: string): SafeUrl {
+    if (!image) {
+      return this.defaultImageUrl;
+    }
+    return this.sanitizer.bypassSecurityTrustUrl(image);
   };
 };

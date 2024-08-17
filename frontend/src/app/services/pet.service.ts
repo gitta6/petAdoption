@@ -35,22 +35,10 @@ export class PetService {
     return this.http.get<Pet>(PETS_BY_ID_URL + petID)
   };
 
-  uploadPet(formData: FormData): Observable<Pet> {
-    console.log('Uploading pet with FormData:', formData);
-
-    formData.forEach((value, key) => {
-      console.log(`FormData entry - Key: ${key}, Value: ${value}`);
-    });
-
-    return this.http.post<any>(PET_UPLOAD_URL, formData).pipe(
-      map(response => {
-        console.log('Response from server:', response);
-        if (response && response.pet) {
-          return response.pet as Pet;
-        }
-        throw new Error('Invalid response format');
-      }),
-      catchError((error) => {
+  uploadPet(formData: FormData): Observable<{ pet: Pet; image: string }> {
+    return this.http.post<{ pet: Pet; image: string }>(PET_UPLOAD_URL, formData).pipe(
+      map(response => response),
+      catchError(error => {
         console.error('Error uploading pet:', error);
         throw error;
       })

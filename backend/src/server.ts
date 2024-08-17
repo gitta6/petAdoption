@@ -25,9 +25,16 @@ app.use("/api/users", userRouter);
 
 app.post('/api/pet-upload', upload.single('image'), async (req, res) => {
     try {
-        console.log('Request received:', req.body, req.file);
+        if (!req.file) {
+            return res.status(400).json({ message: 'No image file uploaded' });
+        }
+
         const { name, age, species, breed, gender, color, description, location, categories } = req.body;
-        const imageUrl = req.file ? req.file.path : '';
+
+        console.log('Uploaded file details:', req.file);
+
+        const imageBase64 = `data:${req.file.mimetype};base64,${req.file.buffer.toString('base64')}`;
+
         const parsedCategories = JSON.parse(categories);
 
         const newPet = new PetModel({
@@ -36,8 +43,8 @@ app.post('/api/pet-upload', upload.single('image'), async (req, res) => {
             species,
             breed,
             gender,
+            image: imageBase64,
             color,
-            imageUrl,
             description,
             location,
             categories: parsedCategories
@@ -50,6 +57,20 @@ app.post('/api/pet-upload', upload.single('image'), async (req, res) => {
     } catch (error) {
         console.error('Error uploading pet:', error);
         res.status(500).json({ message: 'Failed to upload pet', error });
+    }
+});
+
+app.get('/api/pets/:id', async (req, res) => {
+    try {
+        const pet = await PetModel.findById(req.params.id);
+        if (pet) {
+            res.json(pet);
+        } else {
+            res.status(404).json({ message: 'Pet not found' });
+        }
+    } catch (error) {
+        console.error('Error fetching pet:', error);
+        res.status(500).json({ message: 'Failed to fetch pet', error });
     }
 });
 

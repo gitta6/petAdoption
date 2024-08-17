@@ -27,13 +27,13 @@ export class PetUploadComponent implements OnInit {
     breed: '',
     gender: '',
     favorite: false,
-    imageUrl: '',
+    image: '',
     color: '',
     description: '',
     location: '',
     categories: [] as string[],
-    //user: '',
   };
+
   availableCategories = ['Cat', 'Dog', 'Rabbit', 'Male', 'Female'];
 
   constructor(
@@ -47,28 +47,30 @@ export class PetUploadComponent implements OnInit {
 
   onFileChanged(event: any) {
     this.selectedFile = event.target.files[0];
-  };
+    this.imageInvalid = !this.selectedFile;
+    if (this.selectedFile) {
+      this.imageFile = this.selectedFile;
+    } else {
+      this.imageFile = null;
+    }
+  }
 
   petFormValid(): boolean {
     if (this.pet.age < 0) {
       return false;
-    };
+    }
 
     if (!['Hím', 'Nőstény'].includes(this.pet.gender)) {
       return false;
-    };
-
-    if (this.pet.age < 0) {
-      return false;
-    };
+    }
 
     if (!this.pet.name || !this.pet.species || !this.pet.breed || !this.pet.gender ||
       !this.pet.color || !this.pet.description || !this.pet.location) {
       return false;
-    };
+    }
 
     return true;
-  };
+  }
 
   onSubmit(form: NgForm) {
     if (!this.userService.isLoggedIn()) {
@@ -100,7 +102,7 @@ export class PetUploadComponent implements OnInit {
     };
 
     this.petService.uploadPet(formData).subscribe({
-      next: (response: Pet) => {
+      next: (response: { pet: Pet; image: string; }) => {
         this.toastrService.success(`Pet uploaded successfully!`, 'Thank you ♥');
         console.log('Pet uploaded successfully', response);
         this.router.navigateByUrl('/');
@@ -110,7 +112,6 @@ export class PetUploadComponent implements OnInit {
         console.error('Error uploading pet:', error);
       }
     });
-
   };
 
   onFileSelected(event: any) {
@@ -120,8 +121,8 @@ export class PetUploadComponent implements OnInit {
       this.imageInvalid = false;
     } else {
       this.imageInvalid = true;
-    };
-  };
+    }
+  }
 
   onCategoryChange(event: any) {
     const category = event.target.value;
@@ -131,9 +132,9 @@ export class PetUploadComponent implements OnInit {
       const index = this.pet.categories.indexOf(category);
       if (index > -1) {
         this.pet.categories.splice(index, 1);
-      };
-    };
-  };
+      }
+    }
+  }
 
   generateCategories(): string[] {
     const categories: string[] = [];
@@ -141,7 +142,7 @@ export class PetUploadComponent implements OnInit {
       categories.push('Male');
     } else if (this.pet.gender === 'Nőstény') {
       categories.push('Female');
-    };
+    }
 
     switch (this.pet.species.toLowerCase()) {
       case 'macska':
@@ -153,8 +154,8 @@ export class PetUploadComponent implements OnInit {
       case 'nyúl':
         categories.push('Rabbit');
         break;
-    };
+    }
 
     return categories;
-  };
-};
+  }
+}
