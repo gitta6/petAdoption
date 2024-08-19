@@ -21,6 +21,7 @@ export class PetPageComponent implements OnInit {
   isAdmin: boolean = false;
   defaultImageUrl: string = DEFAULT_PET_IMAGE_URL;
   newCategory: string = '';
+  dialogVisible: boolean = false;
 
   constructor(
     activatedRoute: ActivatedRoute,
@@ -64,10 +65,15 @@ export class PetPageComponent implements OnInit {
       return;
     }
 
-    if (this.pet) {
-      this.favoritesService.addToFavorites(this.pet);
-      this.toastrService.success(`We will contact you soon.`, 'Thank you for signing up to adopt ' + this.pet.name + '!');
-    };
+    this.dialogVisible = true;
+  };
+
+  closeDialog() {
+    this.dialogVisible = false;
+  };
+
+  refreshPage() {
+    location.reload();
   };
 
   onDeletePet(id: string) {

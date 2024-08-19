@@ -71,6 +71,22 @@
                 </small>
             </div>
             <div>
+                <label for="ownerName" class="label">Owner's name:</label>
+                <input type="text" id="ownerName" [(ngModel)]="pet.ownerName" name="ownerName" class="form-input" required>
+                <small class="form-text text-muted"
+                    *ngIf="petForm.controls['ownerName'].invalid && (petForm.controls['ownerName'].dirty || petForm.controls['ownerName'].touched)">
+                    The owner's name is required!
+                </small>
+            </div>
+            <div>
+                <label for="ownerPhoneNumber" class="label">Owner's phone number:</label>
+                <input type="text" id="ownerPhoneNumber" [(ngModel)]="pet.ownerPhoneNumber" name="ownerPhoneNumber" class="form-input" required>
+                <small class="form-text text-muted"
+                    *ngIf="petForm.controls['ownerPhoneNumber'].invalid && (petForm.controls['ownerPhoneNumber'].dirty || petForm.controls['ownerPhoneNumber'].touched)">
+                    The owner's phone number is required!
+                </small>
+            </div>
+            <div>
                 <label for="image" class="label">Image:</label>
                 <input type="file" id="image" (change)="onFileChanged($event)" class="form-input" required>
             </div>

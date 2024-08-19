@@ -14,6 +14,8 @@ export interface Pet extends Document {
     location: string;
     categories: string[];
     //user: string[];
+    ownerName: string;
+    ownerPhoneNumber: string;
 };
 
 export const PetSchema = new Schema<Pet>({
@@ -28,6 +30,8 @@ export const PetSchema = new Schema<Pet>({
     description: { type: String, required: true },
     location: { type: String, required: true },
     categories: { type: [String], required: true },
+    ownerName: { type: String, required: true },
+    ownerPhoneNumber: { type: String, required: true },
     //user: { type: Schema.Types.ObjectId, ref: 'User', required: true },
 }, {
     toJSON: {

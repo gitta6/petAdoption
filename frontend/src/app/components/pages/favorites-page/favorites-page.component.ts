@@ -4,6 +4,7 @@ import { Favorites } from '../../../shared/models/Favorites';
 import { FavoritePet } from '../../../shared/models/FavoritePet';
 import { Subscription } from 'rxjs';
 import { DEFAULT_PET_IMAGE_URL } from '../../../constants/defaultImage';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
     selector: 'app-favorites-page',
@@ -15,7 +16,7 @@ export class FavoritesPageComponent implements OnInit, OnDestroy {
     private favoritesSubscription: Subscription;
     defaultImageUrl : string = DEFAULT_PET_IMAGE_URL;
 
-    constructor(private favoritesService: FavoritesService) {
+    constructor(private favoritesService: FavoritesService, private toastrService: ToastrService) {
       this.favoritesSubscription = this.favoritesService.getFavoritesObservable().subscribe((favorites) => {
         this.favorites = favorites;
       });

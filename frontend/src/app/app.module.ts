@@ -24,15 +24,16 @@ import { LoadingComponent } from './components/partials/loading/loading.componen
 import { LoadingInterceptor } from './shared/interceptors/loading.interceptor';
 import { UserService } from './services/user.service';
 import { PetUploadComponent } from './components/pages/pet-upload/pet-upload.component';
+import { PetAdoptDialogComponent } from './components/partials/pet-adopt-dialog/pet-adopt-dialog.component';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, HomeComponent, SearchComponent, CategoriesComponent,
     PetPageComponent, FavoritesPageComponent, TitleComponent, NotFoundComponent, LoginPageComponent,
     RegisterPageComponent, DefaultButtonComponent, InputContainerComponent, InputValidationComponent, TextInputComponent,
-    LoadingComponent, PetUploadComponent],
+    LoadingComponent, PetUploadComponent, PetAdoptDialogComponent],
   imports: [BrowserModule, BrowserAnimationsModule, AppRoutingModule, HttpClientModule,
     ReactiveFormsModule, FormsModule,
-    ToastrModule.forRoot({ timeOut: 3000, positionClass: 'toast-bottom-right', newestOnTop: false })
+    ToastrModule.forRoot({ timeOut: 3000, positionClass: 'toast-bottom-right', newestOnTop: false }),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },

@@ -32,6 +32,8 @@ export class PetUploadComponent implements OnInit {
     description: '',
     location: '',
     categories: [] as string[],
+    ownerName: '',
+    ownerPhoneNumber: '',
   };
 
   availableCategories = ['Cat', 'Dog', 'Rabbit', 'Male', 'Female'];

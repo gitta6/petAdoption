@@ -57,6 +57,9 @@
         <button (click)="adopt()">
             Adopt!
         </button>
+        <app-pet-adopt-dialog [visible]="dialogVisible" [petName]="pet.name" [ownerName]="pet.ownerName"
+            [ownerPhoneNumber]="pet.ownerPhoneNumber" (close)="closeDialog()">
+        </app-pet-adopt-dialog>
         <button *ngIf="isAdmin" (click)="onDeletePet(pet.id)" class="delete-button">
             Delete
         </button>
@@ -66,7 +69,7 @@
             <form (ngSubmit)="onSubmit()">
                 <label>
                     Name:
-                    <input [value]="pet.name" disabled class="non-editable"/>
+                    <input [value]="pet.name" disabled class="non-editable" />
                     <small class="form-text text-muted">Name cannot be modified.</small>
                 </label>
                 <label>
@@ -83,7 +86,7 @@
                 </label>
                 <label>
                     Gender
-                    <input [value]="pet.gender" disabled class="non-editable"/>
+                    <input [value]="pet.gender" disabled class="non-editable" />
                     <small class="form-text text-muted">Gender cannot be modified.</small>
                 </label>
                 <label>

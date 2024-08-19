@@ -1,0 +1,11 @@
+<div *ngIf="visible" class="adoption-dialog">
+    <div class="dialog-content">
+        <h1>Thank You for Adopting!</h1>
+        <p>Thank you for making the first step to adopt <strong>{{petName}}</strong>! In order to continue with the adoption process, contact the
+            owner of this pet! </p>
+        <p>Here is the contact information you need:</p>
+        <p><strong>Owner's Name:</strong> {{ownerName}}</p>
+        <p><strong>Owner's Phone Number:</strong> {{ownerPhoneNumber}}</p>
+        <button (click)="close()">Close</button>
+    </div>
+</div>

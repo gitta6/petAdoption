@@ -11,4 +11,6 @@ export class Pet {
     description?: string;
     location?: string;
     categories!: string[];
+    ownerName!: string;
+    ownerPhoneNumber!: string;
 }

@@ -29,7 +29,7 @@ app.post('/api/pet-upload', upload.single('image'), async (req, res) => {
             return res.status(400).json({ message: 'No image file uploaded' });
         }
 
-        const { name, age, species, breed, gender, color, description, location, categories } = req.body;
+        const { name, age, species, breed, gender, color, description, location, categories, ownerName, ownerPhoneNumber } = req.body;
 
         console.log('Uploaded file details:', req.file);
 
@@ -47,7 +47,9 @@ app.post('/api/pet-upload', upload.single('image'), async (req, res) => {
             color,
             description,
             location,
-            categories: parsedCategories
+            categories: parsedCategories,
+            ownerName,
+            ownerPhoneNumber
         });
 
         await newPet.save();
