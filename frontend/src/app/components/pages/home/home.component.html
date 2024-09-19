@@ -1,7 +1,7 @@
 <app-search></app-search>
 <app-categories></app-categories>
 <app-not-found [visible]="!pets || !pets.length" resetLinkText="Go to Homepage!"></app-not-found>
-<ul>
+<ul placeholder="results">
     <li *ngFor="let pet of pets">
         <a routerLink="/pet/{{pet.id}}">
             <img *ngIf="pet.image" [src]="pet.image" [alt]="pet.name" />
