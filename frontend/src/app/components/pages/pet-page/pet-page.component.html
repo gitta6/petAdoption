@@ -28,7 +28,13 @@
         </div>
         <div class="gender">
             <span>
-                <strong>Gender:</strong> {{pet.gender}}
+                <strong>Gender:</strong>
+                <span *ngIf="pet.gender.toLocaleLowerCase() === 'nőstény'">
+                    ♀️
+                </span>
+                <span *ngIf="pet.gender.toLocaleLowerCase() === 'hím'">
+                    ♂️
+                </span>
             </span>
         </div>
         <div class="color">
@@ -78,11 +84,13 @@
                 </label>
                 <label>
                     Species:
-                    <input [(ngModel)]="pet.species" name="species" />
+                    <input [value]="pet.species" disabled class="non-editable" />
+                    <small class="form-text text-muted">Species cannot be modified.</small>
                 </label>
                 <label>
                     Breed:
-                    <input [(ngModel)]="pet.breed" name="breed" />
+                    <input [value]="pet.breed" disabled class="non-editable" />
+                    <small class="form-text text-muted">Breed cannot be modified.</small>
                 </label>
                 <label>
                     Gender

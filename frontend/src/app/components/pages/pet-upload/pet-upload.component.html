@@ -37,8 +37,8 @@
             <div>
                 <label for="gender" class="label">Gender:</label>
                 <select id="gender" [(ngModel)]="pet.gender" name="gender" class="form-input" required>
-                    <option value="Hím">Hím</option>
-                    <option value="Nőstény">Nőstény</option>
+                    <option value="Hím">Male / Hím</option>
+                    <option value="Nőstény">Female / Nőstény</option>
                 </select>
                 <small class="form-text text-muted"
                     *ngIf="petForm.controls['gender'].invalid && (petForm.controls['gender'].dirty || petForm.controls['gender'].touched)">

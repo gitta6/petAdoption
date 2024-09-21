@@ -150,10 +150,19 @@ export class PetUploadComponent implements OnInit {
       case 'macska':
         categories.push('Cat');
         break;
+      case 'cat':
+        categories.push('Cat');
+        break;
       case 'kutya':
         categories.push('Dog');
         break;
+      case 'dog':
+        categories.push('Dog');
+        break;
       case 'nyúl':
+        categories.push('Rabbit');
+        break;
+      case 'rabbit':
         categories.push('Rabbit');
         break;
     }

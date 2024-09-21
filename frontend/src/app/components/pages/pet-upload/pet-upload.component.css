@@ -2,9 +2,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: #f0f0f0;
+  min-height: 100vh;
   padding: 0 1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  overflow-y: auto;
 }
 
 .wrapper {
@@ -12,7 +14,8 @@
   padding: 1.2rem;
   border-radius: 0.4rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 30rem;
+  width: 100%;
+  max-width: 30rem; 
   margin: 0 auto;
 }
 

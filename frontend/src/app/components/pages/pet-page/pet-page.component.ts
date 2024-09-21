@@ -101,6 +101,11 @@ export class PetPageComponent implements OnInit {
       return;
     };
 
+    if (this.pet.age < 0) {
+      this.toastrService.error('Age must be a positive number!', 'Validation Error');
+      return;
+    };
+
     this.petService.updatePet(this.pet.id, this.pet).subscribe({
       next: () => {
         this.toastrService.success('Pet updated successfully');
