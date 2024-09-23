@@ -7,6 +7,7 @@ import userRouter from './routers/user.router';
 import { dbConnect } from './configs/database.config';
 import { PetModel } from './models/pet.model';
 import multer from 'multer';
+import path from 'path';
 
 dbConnect();
 
@@ -20,8 +21,6 @@ app.use(cors({
     credentials: true,
     origin: ["http://localhost:4200"]
 }));
-
-
 
 app.use("/api/pets", petRouter);
 app.use("/api/users", userRouter);
@@ -79,7 +78,12 @@ app.get('/api/pets/:id', async (req, res) => {
     }
 });
 
-const port = 5000;
+app.use(express.static('public'));
+app.get('*', (req, res) => {
+    res.sendfile(path.join(__dirname, 'public', 'index.html'));
+});
+
+const port = process.env.PORT || 5000;
 app.listen(port, () => {
     console.log("Website served on http://localhost:" + port);
 });
