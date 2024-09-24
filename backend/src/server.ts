@@ -21,8 +21,6 @@ app.use(cors({
     origin: ["http://localhost:4200"]
 }));
 
-
-
 app.use("/api/pets", petRouter);
 app.use("/api/users", userRouter);
 

@@ -44,7 +44,7 @@ export class UserService {
         next: (user) => {
           this.setUserToLocalStorage(user);
           this.userSubject.next(user);
-          this.toastrService.success(`Welcome to PetAdoption, ${user.name}`, 'Register succesful!');
+          this.toastrService.success(`Welcome to PetAdoption, ${user.name}`, 'Register successful!');
         },
         error: (errorResponse) => {
           this.toastrService.error(errorResponse.error, 'Register failed!');
