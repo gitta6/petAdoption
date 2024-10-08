@@ -11,12 +11,25 @@
 
 .wrapper {
   background-color: #fff;
-  padding: 1.2rem;
-  border-radius: 0.4rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  border-radius: 0.8rem;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 30rem; 
+  max-width: 35rem;
   margin: 0 auto;
+  position: relative;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .wrapper > div {
@@ -29,45 +42,43 @@
   display: block;
 }
 
-.form-input {
-  width: 100%;
-  padding: 0.5rem;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 0.4rem;
-  transition: border-color 0.15s ease-in-out;
-}
-
-.form-input:focus {
-  outline: none;
-  border-color: rgb(74, 151, 125);
-}
-
+.form-input,
 .form-textarea {
   width: 100%;
-  padding: 0.5rem;
+  padding: 0.8rem;
   font-size: 1rem;
   border: 1px solid #ccc;
-  border-radius: 0.3rem;
-  transition: border-color 0.15s ease-in-out;
-  resize: vertical;
-  min-height: 6rem;
+  border-radius: 0.5rem;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: rgb(74, 151, 125);
+  box-shadow: 0 0 5px rgba(74, 151, 125, 0.4);
 }
 
 .button {
-  background-color: rgba(74, 151, 125, 0.8);
+  background-color: rgba(74, 151, 125, 0.85);
   color: #fff;
   border: none;
-  padding: 0.8rem 1.5rem;
+  padding: 0.8rem 1.8rem;
   border-radius: 0.4rem;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 1.1rem;
   transition: background-color 0.15s ease-in-out;
   margin-top: 0.5rem;
+  outline: auto;
+  width: 100%;
+  box-sizing: border-box;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .button:hover {
   background-color: rgb(74, 151, 125);
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .form-text {

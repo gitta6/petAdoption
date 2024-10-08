@@ -24,6 +24,12 @@ ul li {
   border-radius: 0.4rem;
   margin: 1rem;
   background-color: rgba(74, 151, 125, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+ul li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 li img {
@@ -44,16 +50,18 @@ li div {
 li .remove-button {
   color: white;
   background: rgba(74, 151, 125, 0.7);
-  padding: 1rem;
+  padding: 0.8rem 1.5rem;
   border-radius: 1.5rem;
   font-size: 1rem;
   outline: none;
-  border: 1px solid white;
+  border: none;
+  transition: background 0.2s;
 }
 
 li .remove-button:hover {
   background: rgba(74, 151, 125, 0.9);
   cursor: pointer;
+  transform: scale(1.05);
 }
 
 .pets-count {
@@ -61,8 +69,12 @@ li .remove-button:hover {
   border-radius: 10rem;
   padding: 1rem;
   background-color: peachpuff;
+  text-align: center;
+  font-weight: bold;
+  transition: background 0.2s;
 }
 
 .pets-count:hover {
   opacity: 0.8;
+  transform: scale(1.05);
 }

@@ -2,11 +2,13 @@ div {
   display: flex;
   flex-wrap: wrap;
   justify-content: left;
+  gap: 0,9rem;
 }
 
 div h3 {
   color: rgb(135, 175, 162);
   margin-left: 3rem;
+  animation: fadeIn 0.5s ease-in-out; 
 }
 
 div h3:hover {
@@ -22,10 +24,13 @@ div a {
   border-radius: 10rem;
   font-weight: bold;
   align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 div a:hover {
   cursor: pointer;
   background-color: rgba(255, 218, 185, 0.9);
-  transform: scale(110%);
+  transform: scale(1.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }

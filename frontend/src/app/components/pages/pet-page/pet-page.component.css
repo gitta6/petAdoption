@@ -3,6 +3,7 @@
   align-items: flex-start;
   margin: 5rem;
   flex-wrap: nowrap;
+  animation: fadeIn 0.6s ease-in-out;
 }
 
 img {
@@ -11,6 +12,11 @@ img {
   height: 35rem;
   width: 35rem;
   margin-left: 2rem;
+}
+
+img:hover {
+  transform: scale(1.005);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .details {
@@ -30,6 +36,7 @@ img {
 
 .favorites-button {
   margin-left: 1rem;
+  font-size: larger;
 }
 
 .name {
@@ -56,12 +63,13 @@ img {
   align-items: center;
   justify-content: center;
   margin: 0.2rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .categories a:hover {
   cursor: pointer;
   background-color: rgba(255, 218, 185, 0.9);
-  transform: scale(110%);
+  transform: scale(1.1);
 }
 
 button {
@@ -73,11 +81,14 @@ button {
   outline: auto;
   width: 100%;
   box-sizing: border-box;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 button:hover {
   background: rgba(74, 151, 125, 0.9);
   cursor: pointer;
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .delete-button {
@@ -95,6 +106,7 @@ button:hover {
   margin: 0 auto;
   text-align: center;
   margin-top: 3rem;
+  font-size: larger;
 }
 
 .delete-button:hover {
@@ -148,4 +160,15 @@ button:hover {
 
 .text-muted {
   color: rgb(251, 171, 100);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

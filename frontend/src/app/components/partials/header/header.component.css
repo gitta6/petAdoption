@@ -1,43 +1,45 @@
 header {
-    position: relative;
-    background: white;
-    padding: 0;
-    border-bottom: 1px solid peachpuff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  background: white;
+  padding: 0;
+  border-bottom: 1px solid peachpuff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 a {
-    color: rgb(74, 151, 125);
-    transition: background-color 0.3s, color 0.3s;
+  color: rgb(74, 151, 125);
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
 a:hover {
-    background: peachpuff;
-    color: white;
-    cursor: pointer;
+  background: peachpuff;
+  color: white;
+  cursor: pointer;
+  transform: scale(1.05);
 }
 
 .container {
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
 }
 
 a.logo {
-    font-weight: bold;
-    padding: 1rem;
-    font-size: 1.2rem;
+  font-weight: bold;
+  padding: 1rem;
+  transition: transform 0.3s ease;
 }
 
 ul {
-    display: flex;
-    list-style-type: none;
-    margin: 0;
+  display: flex;
+  list-style-type: none;
+  margin: 0;
 }
 
 ul a {
-    padding: 1rem;
-    display: inline-block;
+  padding: 1rem;
+  display: inline-block;
 }
 
 a span {
@@ -46,24 +48,30 @@ a span {
     padding: 0.1rem 0.5rem;
     border-radius: 100rem;
     font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+a span:hover {
+    background: rgb(110, 167, 148);
+    transform: scale(1.1);
 }
 
 .menu-container {
-    position: relative;
+  position: relative;
 }
 
 .menu {
-    position: absolute;
-    z-index: 1;
-    background-color: rgb(236, 227, 221);
-    display: none;
+  position: absolute;
+  z-index: 1;
+  background-color: rgb(236, 227, 221);
+  display: none;
 }
 
 .menu-container:hover .menu {
-    display: block;
+  display: block;
 }
 
 .menu a {
-    width: 100%;
-    min-width: 7rem;
+  width: 100%;
+  min-width: 7rem;
 }
