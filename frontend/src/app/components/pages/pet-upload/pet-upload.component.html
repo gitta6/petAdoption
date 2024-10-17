@@ -89,9 +89,12 @@
             <div>
                 <label for="image" class="label">Image:</label>
                 <input type="file" id="image" (change)="onFileChanged($event)" class="form-input" required>
-            </div>
+                <small class="form-text text-muted" *ngIf="imageInvalid">
+                  Wrong format! Please upload a .jpg, .png or .bmp file!
+                </small>
+              </div>
             <button type="submit" class="button">Upload Pet</button>
-            <div>
+            <div>added image upload format validation
                 <small class="info-text">ⓘ Category tags are automatically filtered from the entered values.</small>
             </div>
         </form>

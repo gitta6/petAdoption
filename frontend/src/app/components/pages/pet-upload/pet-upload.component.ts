@@ -48,12 +48,16 @@ export class PetUploadComponent implements OnInit {
   ngOnInit(): void { }
 
   onFileChanged(event: any) {
-    this.selectedFile = event.target.files[0];
-    this.imageInvalid = !this.selectedFile;
-    if (this.selectedFile) {
-      this.imageFile = this.selectedFile;
+    const file: File = event.target.files[0];
+    const validExtensions = ['image/jpeg', 'image/jpg', 'image/png', 'image/bmp'];
+  
+    if (file && validExtensions.includes(file.type)) {
+      this.selectedFile = file;
+      this.imageFile = file;
+      this.imageInvalid = false;
     } else {
       this.imageFile = null;
+      this.imageInvalid = true;
     }
   }
 
