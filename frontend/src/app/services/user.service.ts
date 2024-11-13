@@ -69,27 +69,21 @@ export class UserService {
       localStorage.setItem(USER_KEY, JSON.stringify(user));
       localStorage.setItem('token', user.token);
       this.tokenSubject.next(user.token);
-    } else {
-      console.error('localStorage is not available.');
-    };
+    }
   };
 
   private getUserFromLocalStorage(): User {
     if (typeof localStorage !== 'undefined') {
       const userJSON = localStorage.getItem(USER_KEY);
       if (userJSON) return JSON.parse(userJSON) as User;
-    } else {
-      console.error('localStorage is not available.');
-    };
+    }
     return new User();
   };
 
   private getTokenFromLocalStorage(): string | null {
     if (typeof localStorage !== 'undefined') {
       return localStorage.getItem('token');
-    } else {
-      console.error('localStorage is not available.');
-    };
+    }
     return null;
   };
 
