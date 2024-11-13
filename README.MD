@@ -14,7 +14,7 @@ Before you begin, ensure that you have the following installed:
 
 ### Step 1: Clone the repository
 
-First, clone the repository to your local machine:
+If you haven't already, clone the repository to your local machine:
 
 `git clone https://github.com/gitta6/petAdoption`
 
