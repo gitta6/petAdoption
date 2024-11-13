@@ -18,7 +18,7 @@ First, clone the repository to your local machine:
 
 `git clone https://github.com/gitta6/petAdoption`
 
-`cd petadoption`
+`cd petAdoption`
 
 ### Step 2: Install dependencies
 
